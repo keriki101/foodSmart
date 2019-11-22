@@ -19,6 +19,9 @@ class RecipeResultViewController: UIViewController {
     
     @IBOutlet weak var recipeInfo: UITableViewCell!
     
+    
+    @IBOutlet weak var recipeTable: UITableView!
+    
     var searchArray:[String] = []
     
     override func viewDidLoad() {
