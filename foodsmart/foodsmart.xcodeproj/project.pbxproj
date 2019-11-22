@@ -14,6 +14,7 @@
 		4BEACBD12386B80B00BD9FE6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BEACBCF2386B80B00BD9FE6 /* Main.storyboard */; };
 		4BEACBD32386B80B00BD9FE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BEACBD22386B80B00BD9FE6 /* Assets.xcassets */; };
 		4BEACBD62386B80B00BD9FE6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BEACBD42386B80B00BD9FE6 /* LaunchScreen.storyboard */; };
+		4BF1D4E82387EFBC0016DAF0 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF1D4E72387EFBC0016DAF0 /* Recipe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		4BEACBD22386B80B00BD9FE6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4BEACBD52386B80B00BD9FE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4BEACBD72386B80B00BD9FE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4BF1D4E72387EFBC0016DAF0 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				4BEACBD22386B80B00BD9FE6 /* Assets.xcassets */,
 				4BEACBD42386B80B00BD9FE6 /* LaunchScreen.storyboard */,
 				4BEACBD72386B80B00BD9FE6 /* Info.plist */,
+				4BF1D4E72387EFBC0016DAF0 /* Recipe.swift */,
 			);
 			path = foodsmart;
 			sourceTree = "<group>";
@@ -145,6 +148,7 @@
 				4BEACBCA2386B80B00BD9FE6 /* AppDelegate.swift in Sources */,
 				4BA3872D2387034B00349F5B /* RecipeResultViewController.swift in Sources */,
 				4BEACBCC2386B80B00BD9FE6 /* SceneDelegate.swift in Sources */,
+				4BF1D4E82387EFBC0016DAF0 /* Recipe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,6 +295,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RL4BHYWCGF;
 				INFOPLIST_FILE = foodsmart/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -309,6 +314,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RL4BHYWCGF;
 				INFOPLIST_FILE = foodsmart/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

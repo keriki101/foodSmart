@@ -8,9 +8,16 @@
 
 import UIKit
 import Foundation
+
 class RecipeResultViewController: UIViewController {
 
     @IBOutlet weak var searchBar: UISearchBar!
+    
+    @IBOutlet weak var recipeImage: UIImageView!
+    
+    @IBOutlet weak var recipeName: UITableViewCell!
+    
+    @IBOutlet weak var recipeInfo: UITableViewCell!
     
     var searchArray:[String] = []
     
@@ -19,7 +26,6 @@ class RecipeResultViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }	
-    
     
     /*
     // MARK: - Navigation
