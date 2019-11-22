@@ -48,7 +48,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Item" image="Menu-1" width="60" id="h9a-7S-Gfy">
                             <inset key="imageInsets" minX="-24" minY="0.0" maxX="14" maxY="0.0"/>
                             <connections>
-                                <segue destination="VhP-AY-f73" kind="show" id="gf6-sE-1GR"/>
+                                <action selector="menuButtonPressed:" destination="BYZ-38-t0r" id="nla-Oq-cmQ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -61,7 +61,7 @@
         <!--Menu View Controller-->
         <scene sceneID="LSs-y5-WYe">
             <objects>
-                <tableViewController id="VhP-AY-f73" customClass="MenuViewController" customModule="foodsmart" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="MenuViewController" id="VhP-AY-f73" customClass="MenuViewController" customModule="foodsmart" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="esQ-Qv-ae4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -154,15 +154,15 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shoppingcartIcon" translatesAutoresizingMaskIntoConstraints="NO" id="QUc-La-iPs">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fridgeIcon" translatesAutoresizingMaskIntoConstraints="NO" id="QUc-La-iPs">
                                                     <rect key="frame" x="16" y="33" width="24" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="24" id="4fh-lV-EJt"/>
                                                         <constraint firstAttribute="height" constant="24" id="mHN-7S-ikI"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shopping    cart" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QDH-TA-Mgh">
-                                                    <rect key="frame" x="56" y="32.5" width="104" height="25"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What´s    in    your   fridge" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QDH-TA-Mgh">
+                                                    <rect key="frame" x="56" y="32.5" width="152.5" height="25"/>
                                                     <fontDescription key="fontDescription" name="DiwanMishafi" family="Mishafi" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -186,6 +186,45 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="90" id="64F-Q7-gjW">
+                                        <rect key="frame" x="0.0" y="288" width="414" height="90"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="64F-Q7-gjW" id="Pas-Bz-3us">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shoppingcartIcon" translatesAutoresizingMaskIntoConstraints="NO" id="rrr-LD-jOj">
+                                                    <rect key="frame" x="16" y="33" width="24" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="24" id="a7R-c2-IT8"/>
+                                                        <constraint firstAttribute="height" constant="24" id="rMw-DJ-dgl"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shopping    Cart" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OvY-lf-wYj">
+                                                    <rect key="frame" x="56" y="32.5" width="107.5" height="25"/>
+                                                    <fontDescription key="fontDescription" name="DiwanMishafi" family="Mishafi" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wRL-vu-tdH">
+                                                    <rect key="frame" x="16" y="88" width="398" height="2"/>
+                                                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="2" id="gA6-EP-bs1"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="rrr-LD-jOj" firstAttribute="centerY" secondItem="Pas-Bz-3us" secondAttribute="centerY" id="BMR-cb-EID"/>
+                                                <constraint firstItem="OvY-lf-wYj" firstAttribute="leading" secondItem="rrr-LD-jOj" secondAttribute="trailing" constant="16" id="JGh-fu-gcv"/>
+                                                <constraint firstItem="rrr-LD-jOj" firstAttribute="leading" secondItem="Pas-Bz-3us" secondAttribute="leading" constant="16" id="YYo-M7-XTy"/>
+                                                <constraint firstAttribute="trailing" secondItem="wRL-vu-tdH" secondAttribute="trailing" id="bbU-VX-KcZ"/>
+                                                <constraint firstItem="OvY-lf-wYj" firstAttribute="centerY" secondItem="rrr-LD-jOj" secondAttribute="centerY" id="c5T-qw-9Xp"/>
+                                                <constraint firstAttribute="bottom" secondItem="wRL-vu-tdH" secondAttribute="bottom" id="fK7-Mi-OuM"/>
+                                                <constraint firstItem="wRL-vu-tdH" firstAttribute="leading" secondItem="Pas-Bz-3us" secondAttribute="leading" constant="16" id="x67-4q-S48"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -199,6 +238,56 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B6p-6o-pi8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1901" y="104"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="C3e-im-SEK">
+            <objects>
+                <viewController id="F1x-hi-zxy" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Saw-Ue-Ynb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="search" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a9m-Sj-Iby">
+                                <rect key="frame" x="208" y="544" width="52" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="mHd-l6-TxW"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ZlV-TD-evf"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gNT-Du-xYn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2970" y="-130"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="i1o-rK-9Vx">
+            <objects>
+                <viewController id="xAO-0a-FdO" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VUL-FW-8xU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="fridge" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sxe-Zt-XFQ">
+                                <rect key="frame" x="174" y="190" width="45" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Wsh-H0-xfZ"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="D3s-Qv-hy4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fWh-fO-5CK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2997" y="616"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pZb-Tl-juB">
@@ -222,6 +311,7 @@
     <resources>
         <image name="Menu-1" width="128" height="128"/>
         <image name="foodSmartImage" width="259" height="194"/>
+        <image name="fridgeIcon" width="200" height="200"/>
         <image name="homeIcon" width="1000" height="1080"/>
         <image name="recipeIcon" width="225" height="225"/>
         <image name="shoppingcartIcon" width="224" height="224"/>
