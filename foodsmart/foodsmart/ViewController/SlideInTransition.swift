@@ -14,7 +14,7 @@ class SlideInTransition: NSObject, UIViewControllerAnimatedTransitioning {
     let dimmingView = UIView()
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 1.0
+        return 0.5
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -24,7 +24,7 @@ class SlideInTransition: NSObject, UIViewControllerAnimatedTransitioning {
         
         let containerView = transitionContext.containerView
         
-        let finalWidth = toViewController.view.bounds.width * 0.55
+        let finalWidth = toViewController.view.bounds.width * 0.6
         let finalHeight = toViewController.view.bounds.height
         
         // Add MenuViewController to container

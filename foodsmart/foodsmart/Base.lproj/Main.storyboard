@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SbT-do-Ymp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SbT-do-Ymp">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -45,8 +45,10 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title=" FoodSmart" id="3cB-UX-S9r">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="Menu-1" width="60" id="h9a-7S-Gfy">
-                            <inset key="imageInsets" minX="-24" minY="0.0" maxX="14" maxY="0.0"/>
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="Menu-1" width="40" id="h9a-7S-Gfy">
+                            <inset key="imageInsets" minX="-44" minY="-2" maxX="35" maxY="5"/>
+                            <inset key="largeContentSizeImageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="3"/>
+                            <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                             <connections>
                                 <action selector="menuButtonPressed:" destination="BYZ-38-t0r" id="nla-Oq-cmQ"/>
                             </connections>
@@ -240,54 +242,49 @@
             <point key="canvasLocation" x="1901" y="104"/>
         </scene>
         <!--View Controller-->
-        <scene sceneID="C3e-im-SEK">
+        <scene sceneID="fYk-Cb-Nhm">
             <objects>
-                <viewController id="F1x-hi-zxy" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Saw-Ue-Ynb">
+                <viewController storyboardIdentifier="fridgeVC" id="mpp-y9-Cu3" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qN7-Vm-PAt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="search" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a9m-Sj-Iby">
-                                <rect key="frame" x="208" y="544" width="52" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="mHd-l6-TxW"/>
+                        <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="pfY-sq-fYX"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ZlV-TD-evf"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gNT-Du-xYn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bc4-Vw-Oyr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2970" y="-130"/>
+            <point key="canvasLocation" x="3161" y="115"/>
         </scene>
         <!--View Controller-->
-        <scene sceneID="i1o-rK-9Vx">
+        <scene sceneID="q6t-Vb-Kks">
             <objects>
-                <viewController id="xAO-0a-FdO" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="VUL-FW-8xU">
+                <viewController storyboardIdentifier="shoppingCartVC" id="gxH-MM-83Q" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DDf-P9-aRF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="fridge" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sxe-Zt-XFQ">
-                                <rect key="frame" x="174" y="190" width="45" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="Wsh-H0-xfZ"/>
+                        <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="1Z2-ig-TjG"/>
                     </view>
-                    <navigationItem key="navigationItem" id="D3s-Qv-hy4"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fWh-fO-5CK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lbV-zs-m5u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2997" y="616"/>
+            <point key="canvasLocation" x="2717" y="863"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="0Qe-IZ-ool">
+            <objects>
+                <viewController storyboardIdentifier="searchVC" id="KYW-M6-d81" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tOu-ia-a0B">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="V25-U0-SSx"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="idw-7X-jfb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2813" y="-583"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pZb-Tl-juB">

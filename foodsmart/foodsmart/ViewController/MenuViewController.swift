@@ -11,7 +11,7 @@ import UIKit
 
 enum MenuType: Int {
     
-    case home
+    case FoodSmart
     case searchReciepe
     case whatsInYourFridge
     case shoppingCart
