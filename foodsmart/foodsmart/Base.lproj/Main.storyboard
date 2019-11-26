@@ -91,7 +91,7 @@
                         <outlet property="RecipeImage" destination="Bih-CN-M3P" id="5K2-S0-oO0"/>
                         <outlet property="recipeInfo" destination="eYZ-0Z-UAm" id="3b5-c0-oGB"/>
                         <outlet property="recipeName" destination="eYZ-0Z-UAm" id="2V6-TJ-lK1"/>
-                        <outlet property="recipeTable" destination="xFA-K6-yez" id="UOb-G8-fLR"/>
+                        <outlet property="recipeTable" destination="xFA-K6-yez" id="e7O-Sn-2XD"/>
                         <outlet property="searchBar" destination="zdU-Io-Kxn" id="LlP-0k-b58"/>
                     </connections>
                 </viewController>

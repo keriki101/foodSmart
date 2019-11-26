@@ -10,7 +10,9 @@ import UIKit
 import Foundation
 
 class RecipeResultViewController: UIViewController {
-
+    
+    var recipeArray: [recipe] = []
+    
     @IBOutlet weak var searchBar: UISearchBar!
     
     @IBOutlet weak var recipeImage: UIImageView!
@@ -22,13 +24,31 @@ class RecipeResultViewController: UIViewController {
     
     @IBOutlet weak var recipeTable: UITableView!
     
-    var searchArray:[String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }	
+        
+        recipeTable.delegate = self
+        recipeTable.dataSource = self
+        
+        for i in 0..<10 {
+            let recipeList = recipe( recipeName: "recipe\(i)")
+            recipeArray.append(recipeArray)
+        }
+        recipeTable.reloadData()
+    }
+    
+    extension RecipeResultViewController{
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch section {
+        case 0:
+            return workExperienceArray.count
+        case 1:
+            return educationExperienceArray.count
+        default:
+            return 0
+        }
+    }
     
     /*
     // MARK: - Navigation
