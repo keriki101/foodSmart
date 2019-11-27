@@ -14,7 +14,7 @@ class ShoppingCartViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var ingredientList: UITableView!
     @IBOutlet weak var addIngredientTextField: UITextField!
     
-    var ingredients: [String] = ["Cheese", "Garlic", "Butter", "Rice", "Pasta"]
+    var ingredients: [String] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +22,20 @@ class ShoppingCartViewController: UIViewController, UITextFieldDelegate {
         // Remove empty rows from start
         ingredientList.tableFooterView = UIView.init(frame: .zero)
         
+        saveIngredient()
+        
+        
+    }
+    
+    
+    @IBAction func saveButtonPressed(_ sender: Any) {
+        
+        UserDefaults.standard.set(ingredients, forKey: "saveIngredient")
+    }
+    
+    @IBAction func deleteButtonPressed(_ sender: Any) {
+        
+        UserDefaults.standard.removeObject(forKey: "saveIngredient")
     }
     
     
@@ -29,6 +43,17 @@ class ShoppingCartViewController: UIViewController, UITextFieldDelegate {
         
         insertNewIngredientTitle()
     }
+    
+    //Save ingredient
+    func saveIngredient() {
+        
+        let savedIngredient = UserDefaults.standard.object(forKey: "saveIngredient")
+
+        if let ingredient = savedIngredient as? [String] {
+            ingredients = ingredient
+        }
+    }
+    
     
     //Add new ingredients
     func insertNewIngredientTitle() {
@@ -45,6 +70,7 @@ class ShoppingCartViewController: UIViewController, UITextFieldDelegate {
         view.endEditing(true)
     }
 }
+
 
 extension ShoppingCartViewController: UITableViewDelegate, UITableViewDataSource {
     
@@ -65,12 +91,12 @@ extension ShoppingCartViewController: UITableViewDelegate, UITableViewDataSource
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ingredientCell") as! IngredientCell
         cell.ingredientTitle.text = ingredient
-        
         return cell
         
     }
     
-    //Adding checkmark on selected row
+    // MARK: - Adding checkmark on selected row
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if ingredientList.cellForRow(at: indexPath)?.accessoryType == UITableViewCell.AccessoryType.checkmark {
             ingredientList.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.none
@@ -85,16 +111,18 @@ extension ShoppingCartViewController: UITableViewDelegate, UITableViewDataSource
         return true
     }
     
-    // Remove ingredient
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    // MARK: - Remove ingredient
+    
+    /*func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete {
             
+            //UserDefaults.standard.removeObject(forKey: "saveIngredient")
             ingredients.remove(at: indexPath.row)
             
             ingredientList.beginUpdates()
             ingredientList.deleteRows(at: [indexPath], with: .automatic)
             ingredientList.endUpdates()
         }
-    }
+    }*/
 }
