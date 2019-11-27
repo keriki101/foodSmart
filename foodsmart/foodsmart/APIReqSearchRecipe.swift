@@ -15,9 +15,8 @@ import Foundation
 //Change it so that it works on search rec and search by ingredient
 //Change that URL is an input or make diffrent classes???
 
-//To all whom it may concern: Use x.instance.getReturn etc to access functions from this class 
+//To all whom it may concern: Use x.instance.getReturn etc to access functions from this class
 class APIRequest {
-    
     static let instance = APIRequest()
     
     struct BodyReturn {
@@ -58,6 +57,8 @@ class APIRequest {
 
 
     request.httpMethod = "GET"
+        
+        //Dont know why it's yellow but it does'nt seem to matter... ? 
 
     request.allHTTPHeaderFields = headers
 
