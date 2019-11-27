@@ -8,6 +8,12 @@
 
 import Foundation
 
+
+//TODO
+//Change so that it returns a struct
+//Make sure other classes can use it
+//Change it so that it works on search rec and search by ingredient
+//Change that URL is an input or make diffrent classes???
 class APIRequest {
     struct BodyReturn {
         var recipeID: Int
