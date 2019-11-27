@@ -9,15 +9,12 @@
 import UIKit
 
 class RecipeTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var recipeImage: UIImageView!
     
+    @IBOutlet weak var recipeImage: UIImageView!
     
     @IBOutlet weak var recipeName: UILabel!
     
     @IBOutlet weak var recipeTime: UILabel!
-    
-    @IBOutlet weak var recipeSearch: UISearchBar!
     
     override func awakeFromNib() {
         super.awakeFromNib()

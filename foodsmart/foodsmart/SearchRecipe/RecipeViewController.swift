@@ -8,40 +8,30 @@
 
 import UIKit
 
-class RecipeViewController: UIViewController {
+class RecipeViewController: UITableViewController {
 
     
-    @IBOutlet weak var recipeTable: UITableView!
+    @IBOutlet var recipeTable: UITableView!
     
     var recipeArray: [recipe] = []
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        recipeTable.delegate = self as? UITableViewDelegate
-        recipeTable.dataSource = self as? UITableViewDataSource
+        recipeTable.delegate = self
+        recipeTable.dataSource = self
         
-        for i in 0..<10{
-            let getRecipe = recipe(recipeName: "title \(i)", recipeTime: "0")
+        for i in 0..<10 {
+            let getRecipe = recipe(recipeName: "title \(i)")
             recipeArray.append(getRecipe)
         }
-        
+        recipeTable.reloadData()
        
     }
 
 
     
-    func tableView(_ tableView: UITableView, CellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeCell") as? RecipeTableViewCell{
-            var recipeItem = recipeArray[indexPath.row]
-            cell.recipeImage.image = UIImage(systemName: recipeItem.recipeImage)
-            cell.recipeName.text = recipeItem.recipeName
-            cell.recipeTime.text = recipeItem.recipeTime
-            return cell
-        }
-        return UITableViewCell()
-    }
+    
 
     /*
     // MARK: - Navigation
@@ -55,7 +45,17 @@ class RecipeViewController: UIViewController {
 
 }
 extension RecipeViewController{
-    func tableView(_ tableView: UITableView, numberOfSection section: Int) -> Int{
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return recipeArray.count
         }
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeCell") as? RecipeTableViewCell{
+            var recipeItem = recipeArray[indexPath.row]
+            cell.recipeImage.image = UIImage(systemName: recipeItem.recipeImage)
+            cell.recipeName.text = recipeItem.recipeName
+            cell.recipeTime.text = recipeItem.recipeTime
+            return cell
+        }
+        return UITableViewCell()
+    }
 }
