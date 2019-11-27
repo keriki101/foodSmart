@@ -27,7 +27,7 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="foodSmartImage" translatesAutoresizingMaskIntoConstraints="NO" id="XUS-fN-8Oe">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="foodSmartImage" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XUS-fN-8Oe">
                                 <rect key="frame" x="0.0" y="88" width="414" height="271"/>
                             </imageView>
                         </subviews>
@@ -248,7 +248,7 @@
                     <view key="view" contentMode="scaleToFill" id="qN7-Vm-PAt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="pfY-sq-fYX"/>
                     </view>
                 </viewController>
@@ -256,20 +256,91 @@
             </objects>
             <point key="canvasLocation" x="3161" y="115"/>
         </scene>
-        <!--View Controller-->
+        <!--Shopping Cart View Controller-->
         <scene sceneID="q6t-Vb-Kks">
             <objects>
-                <viewController storyboardIdentifier="shoppingCartVC" id="gxH-MM-83Q" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="shoppingCartVC" id="gxH-MM-83Q" customClass="ShoppingCartViewController" customModule="foodsmart" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DDf-P9-aRF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Kup-nN-ebd">
+                                <rect key="frame" x="0.0" y="144" width="414" height="718"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ingredientCell" rowHeight="129" id="eh1-KG-C3C" customClass="IngredientCell" customModule="foodsmart" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="129"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eh1-KG-C3C" id="sWo-97-5fs">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="129"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hW3-ac-fLI">
+                                                    <rect key="frame" x="15" y="0.0" width="299" height="129"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="hW3-ac-fLI" firstAttribute="top" secondItem="sWo-97-5fs" secondAttribute="top" id="8Ai-h4-pXp"/>
+                                                <constraint firstAttribute="bottom" secondItem="hW3-ac-fLI" secondAttribute="bottom" id="cun-3V-zMt"/>
+                                                <constraint firstAttribute="trailing" secondItem="hW3-ac-fLI" secondAttribute="trailing" constant="100" id="eOK-4S-rSq"/>
+                                                <constraint firstItem="hW3-ac-fLI" firstAttribute="leading" secondItem="sWo-97-5fs" secondAttribute="leading" constant="15" id="lO3-4a-37B"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="ingredientTitle" destination="hW3-ac-fLI" id="wJ3-eR-pNl"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="gxH-MM-83Q" id="5Y2-Rb-gSv"/>
+                                    <outlet property="delegate" destination="gxH-MM-83Q" id="32t-qE-bkA"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wvZ-fK-Yfg">
+                                <rect key="frame" x="339" y="62" width="60" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="lQq-43-CcU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                                <state key="normal" title="ADD">
+                                    <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="addRow:" destination="gxH-MM-83Q" eventType="touchUpInside" id="Z17-ON-m6S"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enter ingredient ......." borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AdN-jb-tzf">
+                                <rect key="frame" x="28" y="69" width="256" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Kup-nN-ebd" firstAttribute="leading" secondItem="1Z2-ig-TjG" secondAttribute="leading" id="3M6-Of-9gS"/>
+                            <constraint firstItem="wvZ-fK-Yfg" firstAttribute="leading" secondItem="AdN-jb-tzf" secondAttribute="trailing" constant="55" id="4wh-Gd-Ldf"/>
+                            <constraint firstItem="1Z2-ig-TjG" firstAttribute="bottom" secondItem="Kup-nN-ebd" secondAttribute="bottom" id="6HF-d2-CvU"/>
+                            <constraint firstItem="AdN-jb-tzf" firstAttribute="leading" secondItem="1Z2-ig-TjG" secondAttribute="leading" constant="28" id="7yb-zU-SQN"/>
+                            <constraint firstItem="1Z2-ig-TjG" firstAttribute="trailing" secondItem="Kup-nN-ebd" secondAttribute="trailing" id="8xh-8y-0uw"/>
+                            <constraint firstItem="AdN-jb-tzf" firstAttribute="top" secondItem="1Z2-ig-TjG" secondAttribute="top" constant="25" id="CB1-Me-qML"/>
+                            <constraint firstItem="wvZ-fK-Yfg" firstAttribute="top" secondItem="1Z2-ig-TjG" secondAttribute="top" constant="18" id="Ymh-R9-5l4"/>
+                            <constraint firstItem="1Z2-ig-TjG" firstAttribute="trailing" secondItem="wvZ-fK-Yfg" secondAttribute="trailing" constant="15" id="dZY-bc-2gG"/>
+                            <constraint firstItem="Kup-nN-ebd" firstAttribute="top" secondItem="1Z2-ig-TjG" secondAttribute="top" constant="100" id="nJ3-lb-cOO"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="1Z2-ig-TjG"/>
                     </view>
+                    <navigationItem key="navigationItem" id="bJP-7H-rdS"/>
+                    <connections>
+                        <outlet property="addIngredientTextField" destination="AdN-jb-tzf" id="hhN-9F-AFd"/>
+                        <outlet property="ingredientList" destination="Kup-nN-ebd" id="RQN-9b-vuF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lbV-zs-m5u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2717" y="863"/>
+            <point key="canvasLocation" x="2715.9420289855075" y="862.5"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="0Qe-IZ-ool">
@@ -278,7 +349,7 @@
                     <view key="view" contentMode="scaleToFill" id="tOu-ia-a0B">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="V25-U0-SSx"/>
                     </view>
                 </viewController>

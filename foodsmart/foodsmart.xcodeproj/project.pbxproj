@@ -14,6 +14,8 @@
 		4BEACBD62386B80B00BD9FE6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BEACBD42386B80B00BD9FE6 /* LaunchScreen.storyboard */; };
 		E750FCC92386C59F00A9DCDC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E750FCC82386C59F00A9DCDC /* HomeViewController.swift */; };
 		E750FCCC2386CA5400A9DCDC /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E750FCCB2386CA5400A9DCDC /* MenuViewController.swift */; };
+		E7998C25238C0AC300617C4A /* ShoppingCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7998C24238C0AC300617C4A /* ShoppingCartViewController.swift */; };
+		E7998C27238C614C00617C4A /* IngredientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7998C26238C614C00617C4A /* IngredientCell.swift */; };
 		E7EAF3142387D75C00A7D3E3 /* SlideInTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EAF3132387D75C00A7D3E3 /* SlideInTransition.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +29,8 @@
 		4BEACBD72386B80B00BD9FE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E750FCC82386C59F00A9DCDC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		E750FCCB2386CA5400A9DCDC /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		E7998C24238C0AC300617C4A /* ShoppingCartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartViewController.swift; sourceTree = "<group>"; };
+		E7998C26238C614C00617C4A /* IngredientCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientCell.swift; sourceTree = "<group>"; };
 		E7EAF3132387D75C00A7D3E3 /* SlideInTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInTransition.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -44,6 +48,7 @@
 		4BEACBBD2386B80B00BD9FE6 = {
 			isa = PBXGroup;
 			children = (
+				E7998C26238C614C00617C4A /* IngredientCell.swift */,
 				4BEACBC82386B80B00BD9FE6 /* foodsmart */,
 				4BEACBC72386B80B00BD9FE6 /* Products */,
 			);
@@ -76,6 +81,7 @@
 			children = (
 				E750FCC82386C59F00A9DCDC /* HomeViewController.swift */,
 				E750FCCB2386CA5400A9DCDC /* MenuViewController.swift */,
+				E7998C24238C0AC300617C4A /* ShoppingCartViewController.swift */,
 				E7EAF3132387D75C00A7D3E3 /* SlideInTransition.swift */,
 			);
 			path = ViewController;
@@ -154,9 +160,11 @@
 			files = (
 				4BEACBCA2386B80B00BD9FE6 /* AppDelegate.swift in Sources */,
 				4BEACBCC2386B80B00BD9FE6 /* SceneDelegate.swift in Sources */,
+				E7998C25238C0AC300617C4A /* ShoppingCartViewController.swift in Sources */,
 				E750FCC92386C59F00A9DCDC /* HomeViewController.swift in Sources */,
 				E750FCCC2386CA5400A9DCDC /* MenuViewController.swift in Sources */,
 				E7EAF3142387D75C00A7D3E3 /* SlideInTransition.swift in Sources */,
+				E7998C27238C614C00617C4A /* IngredientCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
