@@ -14,18 +14,21 @@ import Foundation
 //Make sure other classes can use it
 //Change it so that it works on search rec and search by ingredient
 //Change that URL is an input or make diffrent classes???
+
+//To all whom it may concern: Use x.instance.getReturn etc to access functions from this class 
 class APIRequest {
+    
+    static let instance = APIRequest()
+    
     struct BodyReturn {
-        var recipeID: Int
-        var title: String
-        var readyInMinutes: Int
+        var recipeID: Int = 0
+        var title: String = ""
+        var readyInMinutes: Int = 0
         
     }
-    var testString: String
+    var testString: String = ""
+
     
-    init(_ URL: String) {
-        self.testString = URL
-    }
     
     func searchByrecipe(URL: String) -> String {
         var x = BodyReturn(recipeID: 5, title: "hej", readyInMinutes: 10)
