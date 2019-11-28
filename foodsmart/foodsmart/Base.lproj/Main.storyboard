@@ -398,8 +398,8 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="recipeImage" destination="uEl-wR-Yow" id="QdE-rX-o0o"/>
-                                    <outlet property="recipeName" destination="aei-DO-Pzb" id="puD-ed-M59"/>
                                     <outlet property="recipeTime" destination="Lbv-IS-lEu" id="8RT-zn-eJ5"/>
+                                    <outlet property="recipeTitle" destination="aei-DO-Pzb" id="ZuC-lP-1Tc"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

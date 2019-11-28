@@ -9,13 +9,15 @@
 import Foundation
 
 class recipe{
+    let recipeID: String
     let recipeImage: String
-    let recipeName: String
+    let recipeTitle: String
     let recipeTime: String
 
-    init(recipeImage: String = "default", recipeName: String = "Title", recipeTime: String = "0") {
+    init(recipeID: String = "", recipeImage: String = "default", recipeTitle: String = "Title", recipeTime: String = "0") {
+        self.recipeID = recipeID
         self.recipeImage = recipeImage
-        self.recipeName = recipeName
+        self.recipeTitle = recipeTitle
         self.recipeTime = recipeTime
     }
 }
