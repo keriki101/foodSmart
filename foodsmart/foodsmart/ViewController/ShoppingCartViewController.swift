@@ -13,36 +13,95 @@ class ShoppingCartViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var ingredientList: UITableView!
     @IBOutlet weak var addIngredientTextField: UITextField!
+    @IBOutlet weak var deleteButton: UIButton!
+    
     
     var ingredients: [String] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Remove empty rows from start
-        ingredientList.tableFooterView = UIView.init(frame: .zero)
-        
         saveIngredient()
+        updateDeleteButtonStatus()
+        
+        ingredientList.allowsMultipleSelectionDuringEditing = true
         
         
     }
     
-    
-    @IBAction func saveButtonPressed(_ sender: Any) {
+    // MARK: - Remove ingredient(s)
+
+    @IBAction func deleteButtonTapped(_ sender: UIButton) {
         
-        UserDefaults.standard.set(ingredients, forKey: "saveIngredient")
+        if var selection = ingredientList.indexPathsForSelectedRows {
+               if selection.count > 0 {
+                selection.sort() { $1.compare($0) == .orderedAscending }
+                   
+                   for indexPath in selection {
+                    ingredients.remove(at: indexPath.row)
+                    UserDefaults.standard.set(ingredients, forKey: "saveIngredient")
+
+                   }
+                ingredientList.deleteRows(at: selection, with: .automatic)
+                updateDeleteButtonStatus()
+               }
+        }
     }
     
-    @IBAction func deleteButtonPressed(_ sender: Any) {
+    
+    @IBAction func editButtonPressed(_ sender: UIButton) {
         
-        UserDefaults.standard.removeObject(forKey: "saveIngredient")
+        ingredientList.setEditing(!ingredientList.isEditing, animated: true)
+              
+        sender.setTitle(ingredientList.isEditing ? "Done" : "Edit", for: .normal)
+        updateDeleteButtonStatus()
+
+    }
+    
+    
+    @IBAction func reloadButtonPressed(_ sender: UIButton) {
+        
+        ingredientList.reloadData()
+        updateDeleteButtonStatus()
+
     }
     
     
     @IBAction func addRow(_ sender: UIButton) {
-        
-        insertNewIngredientTitle()
+       
+        if addIngredientTextField.text == "" {
+            return
+        } else {
+            insertNewIngredientTitle()
+        }
     }
+    
+    // MARK : - Update delete button if edit mode is on and if ingredient selected
+    
+    func updateDeleteButtonStatus() {
+        
+        func setButtonTitle(title: String, enabled: Bool) {
+            deleteButton.setTitle(title, for: .normal)
+            deleteButton.isEnabled = enabled
+        }
+        
+        let rootButtonTitle = "Delete"
+        
+        if ingredientList.isEditing != true {
+            setButtonTitle(title: rootButtonTitle, enabled: false)
+        } else {
+            if let selection = ingredientList.indexPathsForSelectedRows {
+                if selection.count == 0 {
+                    setButtonTitle(title: rootButtonTitle, enabled: false)
+                } else {
+                    setButtonTitle(title: rootButtonTitle + " (\(selection.count))", enabled: true)
+                }
+            } else {
+                setButtonTitle(title: rootButtonTitle, enabled: false)
+            }
+        }
+    }
+    
     
     //Save ingredient
     func saveIngredient() {
@@ -59,6 +118,9 @@ class ShoppingCartViewController: UIViewController, UITextFieldDelegate {
     func insertNewIngredientTitle() {
         
         ingredients.append(addIngredientTextField.text!)
+        // save the new ingredient
+        UserDefaults.standard.set(ingredients, forKey: "saveIngredient")
+
         let indexPath = IndexPath(row: ingredients.count - 1, section: 0)
         
         ingredientList.beginUpdates()
@@ -81,7 +143,7 @@ extension ShoppingCartViewController: UITableViewDelegate, UITableViewDataSource
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 70
     }
     
     
@@ -95,34 +157,23 @@ extension ShoppingCartViewController: UITableViewDelegate, UITableViewDataSource
         
     }
     
-    // MARK: - Adding checkmark on selected row
+    // MARK: - Updating delete button when selecting/deselecting row
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if ingredientList.cellForRow(at: indexPath)?.accessoryType == UITableViewCell.AccessoryType.checkmark {
-            ingredientList.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.none
-        } else {
-            ingredientList.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.checkmark
-        }
+        updateDeleteButtonStatus()
     }
     
-    // Can Remove
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        
-        return true
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        updateDeleteButtonStatus()
     }
     
-    // MARK: - Remove ingredient
     
-    /*func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        
-        if editingStyle == .delete {
-            
-            //UserDefaults.standard.removeObject(forKey: "saveIngredient")
-            ingredients.remove(at: indexPath.row)
-            
-            ingredientList.beginUpdates()
-            ingredientList.deleteRows(at: [indexPath], with: .automatic)
-            ingredientList.endUpdates()
-        }
-    }*/
+ 
+
+    
+   
+    
+    
+
 }

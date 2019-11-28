@@ -79,10 +79,10 @@
 			isa = PBXGroup;
 			children = (
 				E750FCC82386C59F00A9DCDC /* HomeViewController.swift */,
+				E7EAF3132387D75C00A7D3E3 /* SlideInTransition.swift */,
 				E750FCCB2386CA5400A9DCDC /* MenuViewController.swift */,
 				E7998C26238C614C00617C4A /* IngredientCell.swift */,
 				E7998C24238C0AC300617C4A /* ShoppingCartViewController.swift */,
-				E7EAF3132387D75C00A7D3E3 /* SlideInTransition.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
