@@ -18,22 +18,25 @@ import Foundation
 //To all whom it may concern: Use x.instance.getReturn etc to access functions from this class
 class APIRequest {
     static let instance = APIRequest()
-    
+    var query: String = ""
+    var url: String = ""
+    var testString: String = ""
     struct BodyReturn {
         var recipeID: Int = 0
         var title: String = ""
         var readyInMinutes: Int = 0
         
     }
-    var testString: String = ""
-
-    
-    
-    func searchByrecipe(URL: String) -> String {
-        var x = BodyReturn(recipeID: 5, title: "hej", readyInMinutes: 10)
-        x.readyInMinutes = 25
-        return x.title
+   
+    func setURL(_ url: String) -> Void {
+        self.url = url
     }
+    
+    func setQuery(_ query: String) -> Void {
+        self.query = query
+    }
+    
+    
     
     
     func getReturn() -> String {
@@ -52,20 +55,12 @@ class APIRequest {
     let request = NSMutableURLRequest(url: NSURL(string: "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/\(resourceRequest)")! as URL,
                                             cachePolicy: .useProtocolCachePolicy,
                                         timeoutInterval: 10.0)
-
-
-
-
     request.httpMethod = "GET"
-        
-        //Dont know why it's yellow but it does'nt seem to matter... ? 
-
+        //Dont know why it's yellow but it does'nt seem to matter... ?
     request.allHTTPHeaderFields = headers
 
-
     let session = URLSession.shared
-        
-        
+                
         let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
         if (error != nil) {
             print(error)
@@ -75,9 +70,7 @@ class APIRequest {
             //This is the body which is what we need
             if let data = data, let dataString = String(data: data, encoding: .utf8) {
                 print("\(dataString)")
-                
             }
-            
         }
     })
 
