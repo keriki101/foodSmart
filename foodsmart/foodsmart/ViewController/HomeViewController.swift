@@ -9,19 +9,20 @@
 import UIKit
 
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
     
     let transition = SlideInTransition()
     var topView: UIView?
+    var menu = MenuViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+    
 
     }
     
-
+    
     @IBAction func menuButtonPressed(_ sender: UIBarButtonItem) {
         
         guard let menuViewController = storyboard?.instantiateViewController(withIdentifier: "MenuViewController") as? MenuViewController else { return }
@@ -32,6 +33,7 @@ class HomeViewController: UIViewController {
         menuViewController.transitioningDelegate = self
         present(menuViewController, animated: true)
     }
+    
     
     func transitionToNewViewController(_ menuType: MenuType) {
         

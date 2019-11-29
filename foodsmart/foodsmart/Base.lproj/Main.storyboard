@@ -17,6 +17,7 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iTs-Wn-E8e">
                                 <rect key="frame" x="30" y="383.66666666666669" width="354" height="129.00000000000006"/>
+                                <gestureRecognizers/>
                                 <attributedString key="attributedText">
                                     <fragment>
                                         <string key="content">Welcome to FoodSmart! Here you can search for reciepes and get some inspiration on what to do for deliscious food. You can also put ingredients in the shopping cart, so you can look up what you need to buy. </string>
@@ -32,6 +33,7 @@
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="iTs-Wn-E8e" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="6Ka-ez-TJC"/>
                             <constraint firstItem="XUS-fN-8Oe" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="DOQ-h6-KsN"/>
@@ -68,6 +70,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <sections>
                             <tableViewSection id="PYJ-Eq-hk0">
                                 <cells>
@@ -98,14 +101,24 @@
                                                         <constraint firstAttribute="height" constant="2" id="fLd-bF-KP8"/>
                                                     </constraints>
                                                 </view>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Rk-lk-I94">
+                                                    <rect key="frame" x="378" y="0.0" width="21" height="22"/>
+                                                    <color key="tintColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <state key="normal" image="arrowshape.turn.up.right.fill" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="didTapReturnButton:" destination="VhP-AY-f73" eventType="touchUpInside" id="nfb-sM-mnx"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="wa4-RI-dTn" secondAttribute="trailing" id="5Cj-5j-Tsq"/>
                                                 <constraint firstItem="g8f-aY-why" firstAttribute="leading" secondItem="Xac-31-eyL" secondAttribute="trailing" constant="16" id="9eb-cU-NSl"/>
                                                 <constraint firstAttribute="bottom" secondItem="wa4-RI-dTn" secondAttribute="bottom" id="EEw-Ed-dvh"/>
+                                                <constraint firstAttribute="trailing" secondItem="8Rk-lk-I94" secondAttribute="trailing" constant="15" id="LJ5-iB-8xx"/>
                                                 <constraint firstItem="Xac-31-eyL" firstAttribute="centerY" secondItem="VGV-Pn-d5o" secondAttribute="centerY" id="OAo-j1-gdU"/>
                                                 <constraint firstItem="Xac-31-eyL" firstAttribute="leading" secondItem="VGV-Pn-d5o" secondAttribute="leading" constant="16" id="eI6-a9-dSc"/>
                                                 <constraint firstItem="wa4-RI-dTn" firstAttribute="leading" secondItem="VGV-Pn-d5o" secondAttribute="leading" constant="16" id="n4f-T5-wpf"/>
+                                                <constraint firstItem="8Rk-lk-I94" firstAttribute="top" secondItem="VGV-Pn-d5o" secondAttribute="top" id="nXB-Ja-pHF"/>
                                                 <constraint firstItem="g8f-aY-why" firstAttribute="centerY" secondItem="Xac-31-eyL" secondAttribute="centerY" id="rYo-lI-0sK"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -235,11 +248,13 @@
                             <outlet property="delegate" destination="VhP-AY-f73" id="CmF-6R-dm8"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="aq6-SM-J6T"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B6p-6o-pi8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1901" y="104"/>
+            <point key="canvasLocation" x="1900.0000000000002" y="103.79464285714285"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="fYk-Cb-Nhm">
@@ -410,6 +425,7 @@
     </scenes>
     <resources>
         <image name="Menu-1" width="128" height="128"/>
+        <image name="arrowshape.turn.up.right.fill" catalog="system" width="64" height="52"/>
         <image name="foodSmartImage" width="259" height="194"/>
         <image name="fridgeIcon" width="200" height="200"/>
         <image name="homeIcon" width="1000" height="1080"/>

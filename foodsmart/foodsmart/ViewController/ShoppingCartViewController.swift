@@ -69,7 +69,7 @@ class ShoppingCartViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func addRow(_ sender: UIButton) {
        
-        if addIngredientTextField.text == "" {
+        if addIngredientTextField.text == "" || addIngredientTextField.text == "Enter ingredient ......." {
             return
         } else {
             insertNewIngredientTitle()
@@ -168,12 +168,4 @@ extension ShoppingCartViewController: UITableViewDelegate, UITableViewDataSource
         updateDeleteButtonStatus()
     }
     
-    
- 
-
-    
-   
-    
-    
-
 }

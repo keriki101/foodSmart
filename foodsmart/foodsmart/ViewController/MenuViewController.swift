@@ -24,8 +24,16 @@ class MenuViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
 
+
+    }
+    
+    
+    @IBAction func didTapReturnButton(_ sender: Any) {
+        
+        dismiss(animated: true)
     }
     
     
