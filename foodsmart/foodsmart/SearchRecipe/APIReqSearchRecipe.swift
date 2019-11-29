@@ -9,7 +9,7 @@
 import Foundation
 
 class getRecipe {
-    let result = [APIRequest]
+    var result = [APIRequest]()
     
     init(result:[APIRequest]) {
         self.result = result

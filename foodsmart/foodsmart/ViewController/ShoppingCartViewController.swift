@@ -12,7 +12,7 @@ import UIKit
 class ShoppingCartViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var ingredientList: UITableView!
-    @IBOutlet weak var addIngredientTextField: UITextField!
+    @IBOutlet weak var addIngredientTextField: UISearchBar!
     @IBOutlet weak var deleteButton: UIButton!
     
     
@@ -69,7 +69,7 @@ class ShoppingCartViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func addRow(_ sender: UIButton) {
        
-        if addIngredientTextField.text == "" || addIngredientTextField.text == "Enter ingredient ......." {
+        if addIngredientTextField.text == "" {
             return
         } else {
             insertNewIngredientTitle()

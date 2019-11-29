@@ -9,17 +9,36 @@
 import UIKit
 
 
-class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
+class HomeViewController: UIViewController, UIScrollViewDelegate {
     
     let transition = SlideInTransition()
     var topView: UIView?
     var menu = MenuViewController()
+    @IBOutlet weak var homePageControll: UIPageControl!
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    let imagesArray = ["foodBlur", "pizza", "iceCream"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        homePageControll.numberOfPages = imagesArray.count
+        
+        for i in 0..<imagesArray.count {
+            let imageView = UIImageView()
+            imageView.contentMode = .scaleToFill
+            imageView.image = UIImage(named: imagesArray[i])
+            let xPos = CGFloat(i)*self.view.bounds.size.width
+            imageView.frame = CGRect(x: xPos, y: 0, width: view.frame.size.width, height: scrollView.frame.size.height)
+            scrollView.contentSize.width = view.frame.size.width*CGFloat(i+1)
+            scrollView.addSubview(imageView)
+        }
+    }
     
-
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let page = scrollView.contentOffset.x/scrollView.frame.width
+        
+        homePageControll.currentPage = Int(page)
     }
     
     

@@ -50,7 +50,7 @@ extension RecipeViewController{
         }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeCell") as? RecipeTableViewCell{
-            var recipeItem = recipeArray[indexPath.row]
+            let recipeItem = recipeArray[indexPath.row]
             cell.recipeImage.image = UIImage(systemName: recipeItem.recipeImage)
             cell.recipeTitle.text = recipeItem.recipeTitle
             cell.recipeTime.text = recipeItem.recipeTime
