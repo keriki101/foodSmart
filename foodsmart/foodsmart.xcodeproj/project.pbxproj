@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4B5B0339239007920011917C /* APIReqSearchRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5B0338239007920011917C /* APIReqSearchRecipe.swift */; };
+		4B6FE90D23916991000CA801 /* recipeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6FE90C23916991000CA801 /* recipeHandler.swift */; };
 		4BBA1ECD238E875900310774 /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBA1ECC238E875900310774 /* RecipeViewController.swift */; };
 		4BBA1ECF238E876E00310774 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBA1ECE238E876E00310774 /* Recipe.swift */; };
 		4BBA1ED3238E929E00310774 /* RecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBA1ED2238E929E00310774 /* RecipeTableViewCell.swift */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		4B5B0338239007920011917C /* APIReqSearchRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIReqSearchRecipe.swift; sourceTree = "<group>"; };
+		4B6FE90C23916991000CA801 /* recipeHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recipeHandler.swift; sourceTree = "<group>"; };
 		4BBA1ECC238E875900310774 /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
 		4BBA1ECE238E876E00310774 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		4BBA1ED2238E929E00310774 /* RecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTableViewCell.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 				4BBA1ECE238E876E00310774 /* Recipe.swift */,
 				4BBA1ED2238E929E00310774 /* RecipeTableViewCell.swift */,
 				4B5B0338239007920011917C /* APIReqSearchRecipe.swift */,
+				4B6FE90C23916991000CA801 /* recipeHandler.swift */,
 			);
 			path = SearchRecipe;
 			sourceTree = "<group>";
@@ -182,6 +185,7 @@
 				4BEACBCA2386B80B00BD9FE6 /* AppDelegate.swift in Sources */,
 				4BBA1ED3238E929E00310774 /* RecipeTableViewCell.swift in Sources */,
 				4BEACBCC2386B80B00BD9FE6 /* SceneDelegate.swift in Sources */,
+				4B6FE90D23916991000CA801 /* recipeHandler.swift in Sources */,
 				E7998C25238C0AC300617C4A /* ShoppingCartViewController.swift in Sources */,
 				E750FCC92386C59F00A9DCDC /* HomeViewController.swift in Sources */,
 				4BBA1ECD238E875900310774 /* RecipeViewController.swift in Sources */,

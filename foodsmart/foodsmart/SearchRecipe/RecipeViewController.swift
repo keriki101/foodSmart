@@ -59,3 +59,14 @@ extension RecipeViewController{
         return UITableViewCell()
     }
 }
+
+extension RecipeViewController: UISearchBarDelegate{
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let searchBarText = searchBar.text else {return}
+        let recipeRequest = APIRequest()
+        recipeRequest.setQuery(searchBarText)
+        recipeRequest.getReturn(completed: { result in
+            print(result)
+        })
+    }
+}
