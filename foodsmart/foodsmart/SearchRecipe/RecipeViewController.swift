@@ -22,17 +22,12 @@ class RecipeViewController: UITableViewController {
         recipeTable.dataSource = self
         
         for i in 0..<10 {
-            let getRecipe = recipe(recipeTitle: "title \(i)")
+            let getRecipe = recipe(recipeID: 0, recipeTitle: "Title \(i) ")
             recipeArray.append(getRecipe)
         }
         recipeTable.reloadData()
        
     }
-
-
-    
-    
-
     /*
     // MARK: - Navigation
 
@@ -42,8 +37,8 @@ class RecipeViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }
+
 extension RecipeViewController{
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return recipeArray.count
@@ -67,6 +62,10 @@ extension RecipeViewController: UISearchBarDelegate{
         recipeRequest.setQuery(searchBarText)
         recipeRequest.getReturn(completed: { result in
             print(result)
+            //here we should add code so that the results end up in the query,
+            //then we have to proceed the query and take the infotmation from it to take out everything we need.
+            
         })
     }
 }
+

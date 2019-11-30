@@ -8,12 +8,17 @@
 
 import Foundation
 
-class recipe: Decodable{
-    let recipeID: String
+class recipe {
+    let recipeID: Int
     let recipeImage: String
     let recipeTitle: String
     let recipeTime: String
 
-   
+    init(recipeID: Int, recipeImage: String = "Default", recipeTitle: String = "Title", recipeTime: String = "0") {
+        self.recipeID = recipeID
+        self.recipeImage = recipeImage
+        self.recipeTitle = recipeTitle
+        self.recipeTime = recipeTime
+    }
 }
 

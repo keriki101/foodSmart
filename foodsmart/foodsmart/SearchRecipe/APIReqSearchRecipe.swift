@@ -41,7 +41,7 @@ class APIRequest {
     
     
     
-    func getReturn(completed: @escaping(BodyReturn) -> Void?) {
+ func getReturn(completed: @escaping(BodyReturn) -> Void?) {
         // TODO MAJOR!
         // Expressions are not allowed at top level will occur otherwise
         // https://www.youtube.com/watch?v=tdxKIPpPDAI
@@ -60,15 +60,13 @@ class APIRequest {
             request.allHTTPHeaderFields = headers
 
             let session = URLSession.shared
-        var myStruct = BodyReturn()
+            var myStruct = BodyReturn()
             let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
                 if (error != nil) {
                     print(error)
                 } else {
-                    //let httpResponse = response as? HTTPURLResponse
-                    //print(httpResponse)
                     if let data = data, let dataString = String(data: data, encoding: .utf8) {
-                        print("\(dataString)")
+                        //print("\(dataString)")
                         myStruct.title = dataString
                         completed(myStruct)
                     }
