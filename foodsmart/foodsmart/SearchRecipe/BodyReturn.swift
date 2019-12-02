@@ -8,7 +8,15 @@
 
 import Foundation
 
-struct BodyReturn: Codable {
+class getRecipe:Codable {
+    let results: [BodyReturn] = []
+    
+//    init(results: [BodyReturn]) {
+//        self.results = results
+//    }
+}
+
+class BodyReturn: Codable {
     var id: Int = 0
     var title: String = ""
     var readyInMinutes: Int = 0

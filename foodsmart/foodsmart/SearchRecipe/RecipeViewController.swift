@@ -10,7 +10,6 @@ import UIKit
 
 class RecipeViewController: UITableViewController {
 
-    
     @IBOutlet var recipeTable: UITableView!
     
     var recipeArray: [recipe] = []
@@ -20,25 +19,14 @@ class RecipeViewController: UITableViewController {
 
         recipeTable.delegate = self
         recipeTable.dataSource = self
-        
         for i in 0..<10 {
             let getRecipe = recipe(id: 0, title: "Title \(i) ", readyInMinutes: 0)
             recipeArray.append(getRecipe)
         }
-        recipeTable.reloadData()
-       
+        recipeTable.reloadData()       
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 }
-
+//MARK: - Add cell
 extension RecipeViewController{
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return recipeArray.count
@@ -55,6 +43,7 @@ extension RecipeViewController{
     }
 }
 
+//MARK: - SearchBarSearchButtinClicked
 extension RecipeViewController: UISearchBarDelegate{
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchBarText = searchBar.text else {return}
