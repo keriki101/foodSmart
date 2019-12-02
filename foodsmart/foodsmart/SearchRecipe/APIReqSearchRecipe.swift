@@ -23,13 +23,6 @@ class APIRequest {
     var url: String = ""
     var testString: String = ""
     
-    struct BodyReturn {
-        var id: Int = 0
-        var title: String = ""
-        var readyInMinutes: Int = 0
-        var image: String = ""
-    }
-    
     func setURL(_ url: String) -> Void {
         self.url = url
     }
@@ -37,9 +30,6 @@ class APIRequest {
     func setQuery(_ query: String) -> Void {
         self.query = query
     }
-    
-    
-    
     
  func getReturn(completed: @escaping(BodyReturn) -> Void?) {
         // TODO MAJOR!
@@ -66,7 +56,6 @@ class APIRequest {
                     print(error)
                 } else {
                     if let data = data, let dataString = String(data: data, encoding: .utf8) {
-                        //print("\(dataString)")
                         myStruct.title = dataString
                         completed(myStruct)
                     }
@@ -81,3 +70,19 @@ class APIRequest {
 
 
     
+//let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+//    if (error != nil) {
+//        print(error)
+//    } else {
+//        if let data = data, let dataString = String(data: data, encoding: .utf8) {
+//            myStruct.title = dataString
+//            do{
+//                let decoder: [BodyReturn] = try JSONDecoder().decode([BodyReturn].self, from: data)
+//                completed(decoder)
+//            }
+//            catch{
+//                completed([])
+//            }
+//        }
+//    }
+//})

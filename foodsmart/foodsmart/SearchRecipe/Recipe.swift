@@ -8,17 +8,17 @@
 
 import Foundation
 
-class recipe {
-    let recipeID: Int
-    let recipeImage: String
-    let recipeTitle: String
-    let recipeTime: String
+class recipe: Codable {
+    let id: Int
+    let image: String
+    let title: String
+    let readyInMinutes: Int
 
-    init(recipeID: Int, recipeImage: String = "Default", recipeTitle: String = "Title", recipeTime: String = "0") {
-        self.recipeID = recipeID
-        self.recipeImage = recipeImage
-        self.recipeTitle = recipeTitle
-        self.recipeTime = recipeTime
+    init(id: Int, image: String = "Default", title: String = "Title", readyInMinutes: Int) {
+        self.id = id
+        self.image = image
+        self.title = title
+        self.readyInMinutes = readyInMinutes
     }
 }
 

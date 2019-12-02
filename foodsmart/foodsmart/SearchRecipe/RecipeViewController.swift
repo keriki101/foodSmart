@@ -22,7 +22,7 @@ class RecipeViewController: UITableViewController {
         recipeTable.dataSource = self
         
         for i in 0..<10 {
-            let getRecipe = recipe(recipeID: 0, recipeTitle: "Title \(i) ")
+            let getRecipe = recipe(id: 0, title: "Title \(i) ", readyInMinutes: 0)
             recipeArray.append(getRecipe)
         }
         recipeTable.reloadData()
@@ -46,9 +46,9 @@ extension RecipeViewController{
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeCell") as? RecipeTableViewCell{
             var recipeItem = recipeArray[indexPath.row]
-            cell.recipeImage.image = UIImage(systemName: recipeItem.recipeImage)
-            cell.recipeTitle.text = recipeItem.recipeTitle
-            cell.recipeTime.text = recipeItem.recipeTime
+            cell.recipeImage.image = UIImage(systemName: recipeItem.image)
+            cell.recipeTitle.text = recipeItem.title
+            cell.recipeTime.text = "\(recipeItem.readyInMinutes)"
             return cell
         }
         return UITableViewCell()
