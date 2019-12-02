@@ -37,11 +37,11 @@ class ShoppingCartViewController: UIViewController, UITextFieldDelegate {
                if selection.count > 0 {
                 selection.sort() { $1.compare($0) == .orderedAscending }
                    
-                   for indexPath in selection {
+                for indexPath in selection {
                     ingredients.remove(at: indexPath.row)
                     UserDefaults.standard.set(ingredients, forKey: "saveIngredient")
 
-                   }
+                }
                 ingredientList.deleteRows(at: selection, with: .automatic)
                 updateDeleteButtonStatus()
                }

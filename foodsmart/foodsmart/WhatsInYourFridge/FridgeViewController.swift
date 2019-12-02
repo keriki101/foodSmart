@@ -95,6 +95,8 @@ class FridgeViewController: UIViewController {
     @IBAction func searchRecipeTapped(_ sender: Any) {
         
         
+        
+        
     }
     
     @IBAction func editButtontapped(_ sender: UIButton) {

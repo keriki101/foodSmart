@@ -24,6 +24,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
         
         homePageControll.numberOfPages = imagesArray.count
         
+        // Loop through the image array and set the name and scale
         for i in 0..<imagesArray.count {
             let imageView = UIImageView()
             imageView.contentMode = .scaleToFill
@@ -36,8 +37,8 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+       
         let page = scrollView.contentOffset.x/scrollView.frame.width
-        
         homePageControll.currentPage = Int(page)
     }
     

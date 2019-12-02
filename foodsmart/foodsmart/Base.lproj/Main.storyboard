@@ -15,23 +15,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rOR-ud-Bdj">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rOR-ud-Bdj">
                                 <rect key="frame" x="0.0" y="88" width="414" height="699"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <viewLayoutGuide key="contentLayoutGuide" id="97N-Dg-X9E"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="KxY-eD-Ux6"/>
                             </scrollView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="MxW-dG-hGW">
-                                <rect key="frame" x="155" y="776" width="105" height="37"/>
-                                <color key="pageIndicatorTintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <color key="currentPageIndicatorTintColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Du6-Oj-T4Z">
+                                <rect key="frame" x="164" y="776" width="96" height="37"/>
+                                <color key="pageIndicatorTintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="currentPageIndicatorTintColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </pageControl>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="MxW-dG-hGW" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="G2Q-7B-oJ6"/>
-                            <constraint firstItem="MxW-dG-hGW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="155" id="Q6I-hV-fic"/>
+                            <constraint firstItem="rOR-ud-Bdj" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="1Jk-Gb-PlR"/>
+                            <constraint firstItem="rOR-ud-Bdj" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-26" id="2Sz-ei-C5o"/>
+                            <constraint firstItem="Du6-Oj-T4Z" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="164" id="4fy-hK-hLB"/>
+                            <constraint firstItem="rOR-ud-Bdj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="55e-pQ-uut"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Du6-Oj-T4Z" secondAttribute="trailing" constant="154" id="FH0-Ll-ayt"/>
+                            <constraint firstItem="rOR-ud-Bdj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="T8t-8l-ZAF"/>
+                            <constraint firstItem="Du6-Oj-T4Z" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="pbH-Qw-a8f"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -48,7 +50,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="homePageControll" destination="MxW-dG-hGW" id="DL8-sL-lcr"/>
+                        <outlet property="homePageControll" destination="Du6-Oj-T4Z" id="kga-BW-Zu0"/>
                         <outlet property="scrollView" destination="rOR-ud-Bdj" id="sBG-wt-0E0"/>
                     </connections>
                 </viewController>
@@ -170,12 +172,6 @@
                                                         <constraint firstAttribute="height" constant="24" id="mHN-7S-ikI"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What´s    in    your   fridge" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QDH-TA-Mgh">
-                                                    <rect key="frame" x="55.999999999999986" y="32.666666666666664" width="152.66666666666663" height="25"/>
-                                                    <fontDescription key="fontDescription" name="DiwanMishafi" family="Mishafi" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OXI-uT-Ns1">
                                                     <rect key="frame" x="16" y="88" width="398" height="2"/>
                                                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -183,6 +179,12 @@
                                                         <constraint firstAttribute="height" constant="2" id="Tqa-SU-eED"/>
                                                     </constraints>
                                                 </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What´s    in    your   fridge" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QDH-TA-Mgh">
+                                                    <rect key="frame" x="55.999999999999986" y="32.666666666666664" width="152.66666666666663" height="25"/>
+                                                    <fontDescription key="fontDescription" name="DiwanMishafi" family="Mishafi" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="OXI-uT-Ns1" secondAttribute="trailing" id="Au5-Qr-BYM"/>
@@ -209,12 +211,6 @@
                                                         <constraint firstAttribute="height" constant="24" id="rMw-DJ-dgl"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shopping    Cart" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OvY-lf-wYj">
-                                                    <rect key="frame" x="56.000000000000007" y="32.666666666666664" width="107.66666666666669" height="25"/>
-                                                    <fontDescription key="fontDescription" name="DiwanMishafi" family="Mishafi" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wRL-vu-tdH">
                                                     <rect key="frame" x="16" y="88" width="398" height="2"/>
                                                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -222,6 +218,12 @@
                                                         <constraint firstAttribute="height" constant="2" id="gA6-EP-bs1"/>
                                                     </constraints>
                                                 </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shopping    Cart" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OvY-lf-wYj">
+                                                    <rect key="frame" x="56.000000000000007" y="32.666666666666664" width="107.66666666666669" height="25"/>
+                                                    <fontDescription key="fontDescription" name="DiwanMishafi" family="Mishafi" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="rrr-LD-jOj" firstAttribute="centerY" secondItem="Pas-Bz-3us" secondAttribute="centerY" id="BMR-cb-EID"/>
@@ -253,7 +255,6 @@
         <!--Shopping Cart View Controller-->
         <scene sceneID="q6t-Vb-Kks">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lbV-zs-m5u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="shoppingCartVC" id="gxH-MM-83Q" customClass="ShoppingCartViewController" customModule="foodsmart" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DDf-P9-aRF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -380,6 +381,7 @@
                         <outlet property="ingredientList" destination="Kup-nN-ebd" id="RQN-9b-vuF"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lbV-zs-m5u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2715.9420289855075" y="862.5"/>
         </scene>
@@ -552,7 +554,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aei-DO-Pzb">
-                                            <rect key="frame" x="124" y="14.000000000000002" width="278" height="20.666666666666671"/>
+                                            <rect key="frame" x="124" y="14.000000000000002" width="278" height="24.666666666666671"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -565,26 +567,41 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lbv-IS-lEu">
-                                            <rect key="frame" x="124" y="67.666666666666671" width="278" height="20.333333333333329"/>
+                                            <rect key="frame" x="124" y="71.666666666666671" width="278" height="16.333333333333329"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="16.333333333333329" id="Uan-QM-dZG"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QdW-et-13L">
+                                            <rect key="frame" x="340" y="39" width="54" height="39"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="54" id="HnI-D5-pKU"/>
+                                            </constraints>
+                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <state key="normal" image="favorite"/>
+                                        </button>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="QdW-et-13L" firstAttribute="trailing" secondItem="0cF-WS-A2t" secondAttribute="trailingMargin" id="1Yp-Ya-w7l"/>
                                         <constraint firstItem="uEl-wR-Yow" firstAttribute="top" secondItem="0cF-WS-A2t" secondAttribute="top" constant="12" id="2qa-bp-mOB"/>
+                                        <constraint firstItem="QdW-et-13L" firstAttribute="top" secondItem="aei-DO-Pzb" secondAttribute="bottom" constant="0.3333333333333286" id="532-gF-eZw"/>
                                         <constraint firstAttribute="trailing" secondItem="aei-DO-Pzb" secondAttribute="trailing" constant="12" id="5at-Cl-sZN"/>
-                                        <constraint firstItem="Lbv-IS-lEu" firstAttribute="leading" secondItem="uEl-wR-Yow" secondAttribute="trailing" constant="12" id="JvR-4E-0NS"/>
+                                        <constraint firstItem="Lbv-IS-lEu" firstAttribute="top" secondItem="aei-DO-Pzb" secondAttribute="bottom" constant="33.000000000000014" id="Dpn-ic-qpZ"/>
+                                        <constraint firstItem="QdW-et-13L" firstAttribute="centerY" secondItem="uEl-wR-Yow" secondAttribute="centerY" id="Mz0-UX-uDh"/>
                                         <constraint firstItem="aei-DO-Pzb" firstAttribute="leading" secondItem="uEl-wR-Yow" secondAttribute="trailing" constant="12" id="N3W-zB-wby"/>
                                         <constraint firstItem="aei-DO-Pzb" firstAttribute="top" secondItem="0cF-WS-A2t" secondAttribute="top" constant="14" id="UKY-Sj-OyU"/>
+                                        <constraint firstItem="Lbv-IS-lEu" firstAttribute="leading" secondItem="aei-DO-Pzb" secondAttribute="leading" id="WZU-AW-VUd"/>
                                         <constraint firstItem="uEl-wR-Yow" firstAttribute="leading" secondItem="0cF-WS-A2t" secondAttribute="leading" constant="12" id="X3t-Mb-NCu"/>
-                                        <constraint firstAttribute="trailing" secondItem="Lbv-IS-lEu" secondAttribute="trailing" constant="12" id="Xwb-Bi-r1D"/>
                                         <constraint firstAttribute="bottom" secondItem="uEl-wR-Yow" secondAttribute="bottom" constant="12" id="cVG-K8-tce"/>
-                                        <constraint firstItem="Lbv-IS-lEu" firstAttribute="top" secondItem="aei-DO-Pzb" secondAttribute="bottom" constant="33" id="wSw-a8-6Iw"/>
-                                        <constraint firstAttribute="bottom" secondItem="Lbv-IS-lEu" secondAttribute="bottom" constant="29" id="zsR-L1-3g9"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Lbv-IS-lEu" secondAttribute="bottom" constant="17.999999999999986" id="gpF-Gt-oQD"/>
+                                        <constraint firstItem="Lbv-IS-lEu" firstAttribute="trailing" secondItem="aei-DO-Pzb" secondAttribute="trailing" id="vLo-JW-WUV"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="favoriteImage" destination="QdW-et-13L" id="hkS-lG-Y2N"/>
                                     <outlet property="recipeImage" destination="uEl-wR-Yow" id="QdE-rX-o0o"/>
                                     <outlet property="recipeTime" destination="Lbv-IS-lEu" id="8RT-zn-eJ5"/>
                                     <outlet property="recipeTitle" destination="aei-DO-Pzb" id="ZuC-lP-1Tc"/>
@@ -596,6 +613,7 @@
                             <outlet property="delegate" destination="dIh-Jd-4Mh" id="cZw-WO-RN3"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="des-62-KEc"/>
                     <connections>
                         <outlet property="recipeTable" destination="LR4-cx-838" id="p7G-IA-BMr"/>
                     </connections>
@@ -626,6 +644,7 @@
     <resources>
         <image name="Menu-1" width="128" height="128"/>
         <image name="arrowshape.turn.up.right.fill" catalog="system" width="64" height="52"/>
+        <image name="favorite" width="299" height="168"/>
         <image name="fridgeIcon" width="200" height="200"/>
         <image name="homeIcon" width="1000" height="1080"/>
         <image name="magnifyingglass" catalog="system" width="64" height="56"/>

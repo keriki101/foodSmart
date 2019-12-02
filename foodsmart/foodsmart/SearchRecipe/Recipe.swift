@@ -9,16 +9,20 @@
 import Foundation
 
 class recipe{
+    
     let recipeID: String
     let recipeImage: String
     let recipeTitle: String
     let recipeTime: String
+    var isFavorite: Bool
 
-    init(recipeID: String = "", recipeImage: String = "default", recipeTitle: String = "Title", recipeTime: String = "0") {
+    init(recipeID: String = "", recipeImage: String = "default", recipeTitle: String = "Title", recipeTime: String = "0", isFavorite: Bool = false) {
+        
         self.recipeID = recipeID
         self.recipeImage = recipeImage
         self.recipeTitle = recipeTitle
         self.recipeTime = recipeTime
+        self.isFavorite = isFavorite
     }
 }
 
