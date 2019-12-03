@@ -16,7 +16,7 @@
 		D21D38402396A298007A4A54 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21D383F2396A298007A4A54 /* Recipe.swift */; };
 		D21D38422396A3C6007A4A54 /* DataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21D38412396A3C6007A4A54 /* DataHandler.swift */; };
 		D21D38442396A45F007A4A54 /* StorageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21D38432396A45F007A4A54 /* StorageHandler.swift */; };
-		D2938B02238D8F6B00E25738 /* APIReqSearchRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2938B01238D8F6B00E25738 /* APIReqSearchRecipe.swift */; };
+		D21D38462396B324007A4A54 /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21D38452396B324007A4A54 /* RecipeViewController.swift */; };
 		E750FCC92386C59F00A9DCDC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E750FCC82386C59F00A9DCDC /* HomeViewController.swift */; };
 		E750FCCC2386CA5400A9DCDC /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E750FCCB2386CA5400A9DCDC /* MenuViewController.swift */; };
 		E7EAF3142387D75C00A7D3E3 /* SlideInTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EAF3132387D75C00A7D3E3 /* SlideInTransition.swift */; };
@@ -34,7 +34,7 @@
 		D21D383F2396A298007A4A54 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		D21D38412396A3C6007A4A54 /* DataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHandler.swift; sourceTree = "<group>"; };
 		D21D38432396A45F007A4A54 /* StorageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageHandler.swift; sourceTree = "<group>"; };
-		D2938B01238D8F6B00E25738 /* APIReqSearchRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIReqSearchRecipe.swift; sourceTree = "<group>"; };
+		D21D38452396B324007A4A54 /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
 		E750FCC82386C59F00A9DCDC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		E750FCCB2386CA5400A9DCDC /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		E7EAF3132387D75C00A7D3E3 /* SlideInTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInTransition.swift; sourceTree = "<group>"; };
@@ -72,7 +72,6 @@
 			children = (
 				E750FCCA2386C70000A9DCDC /* ViewController */,
 				4BEACBC92386B80B00BD9FE6 /* AppDelegate.swift */,
-				D2938B01238D8F6B00E25738 /* APIReqSearchRecipe.swift */,
 				4BEACBCB2386B80B00BD9FE6 /* SceneDelegate.swift */,
 				4BEACBCF2386B80B00BD9FE6 /* Main.storyboard */,
 				4BEACBD42386B80B00BD9FE6 /* LaunchScreen.storyboard */,
@@ -82,6 +81,7 @@
 				D21D383F2396A298007A4A54 /* Recipe.swift */,
 				D21D38412396A3C6007A4A54 /* DataHandler.swift */,
 				D21D38432396A45F007A4A54 /* StorageHandler.swift */,
+				D21D38452396B324007A4A54 /* RecipeViewController.swift */,
 			);
 			path = foodsmart;
 			sourceTree = "<group>";
@@ -172,8 +172,8 @@
 				4BEACBCC2386B80B00BD9FE6 /* SceneDelegate.swift in Sources */,
 				E750FCC92386C59F00A9DCDC /* HomeViewController.swift in Sources */,
 				D21D38422396A3C6007A4A54 /* DataHandler.swift in Sources */,
+				D21D38462396B324007A4A54 /* RecipeViewController.swift in Sources */,
 				E750FCCC2386CA5400A9DCDC /* MenuViewController.swift in Sources */,
-				D2938B02238D8F6B00E25738 /* APIReqSearchRecipe.swift in Sources */,
 				E7EAF3142387D75C00A7D3E3 /* SlideInTransition.swift in Sources */,
 				D21D38442396A45F007A4A54 /* StorageHandler.swift in Sources */,
 				D21D38402396A298007A4A54 /* Recipe.swift in Sources */,

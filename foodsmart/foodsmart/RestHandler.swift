@@ -10,19 +10,20 @@ import Foundation
 
 class Resthandler {
     
-    static func getReturn(completed: @escaping(Recipe) -> Void?) {
+    static func getReturn(completed: (([Recipe]) -> Void)?) {
     // TODO MAJOR!
     // Expressions are not allowed at top level will occur otherwise
     // https://www.youtube.com/watch?v=tdxKIPpPDAI
     //
     //
+        print("inne i funktionen iaf")
 
         let headers = [
             "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
             "x-rapidapi-key": "e44daac5e0mshc682df24497a89fp1c4513jsn7067934f0b9b"
         ]
 
-        let request = NSMutableURLRequest(url: NSURL(string: "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?number=10&query=burger")! as URL,
+        let request = NSMutableURLRequest(url: NSURL(string: "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?query=pie")! as URL,
                                                 cachePolicy: .useProtocolCachePolicy,
                                             timeoutInterval: 10.0)
         request.httpMethod = "GET"
@@ -31,17 +32,25 @@ class Resthandler {
         let session = URLSession.shared
         
         
-        
+        var listOfRecipes: [Recipe] = []
         let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
             let decoder = JSONDecoder()
             if (error != nil) {
                 print(error)
+                print("error från get return")
             } else {
                 let httpResponse = response as? HTTPURLResponse
                 //print(httpResponse)
-                if let data = data, let recipe = try? decoder.decode(Recipe.self, from: data) {
-                    //print("\(dataString)")
-                    DataHandler.instance.setRecipe(recipe)
+                print("nästran innen")
+                do {
+                    let recipe = try decoder.decode([Recipe].self, from: data!)
+                    listOfRecipes = recipe
+                    print("KUKENEEEENENE")
+                    completed?(listOfRecipes)
+                }
+                catch (let error){
+                    print(error)
+                    print("Error i catch")
                 }
             }
         })
