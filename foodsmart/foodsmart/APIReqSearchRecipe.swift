@@ -43,7 +43,7 @@ class APIRequest {
     
     
     
-     func getReturn(completed: @escaping(BodyReturn) -> Void?) {
+     static func getReturn(completed: @escaping(BodyReturn) -> Void?) {
         // TODO MAJOR!
         // Expressions are not allowed at top level will occur otherwise
         // https://www.youtube.com/watch?v=tdxKIPpPDAI
