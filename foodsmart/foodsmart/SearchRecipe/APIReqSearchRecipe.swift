@@ -32,14 +32,14 @@ class APIRequest {
                 "x-rapidapi-key": "e44daac5e0mshc682df24497a89fp1c4513jsn7067934f0b9b"
             ]
 
-            let request = NSMutableURLRequest(url: NSURL(string: "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?number=10&query=\(query)")! as URL,
+            let request = NSMutableURLRequest(url: NSURL(string: "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?number=1&query=\(query)")! as URL,
                                                     cachePolicy: .useProtocolCachePolicy,
                                                 timeoutInterval: 10.0)
             request.httpMethod = "GET"
             request.allHTTPHeaderFields = headers
 
             let session = URLSession.shared
-            let myStruct = BodyReturn()
+            var myStruct = BodyReturn()
             let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
                 if (error != nil) {
                     print(error)
