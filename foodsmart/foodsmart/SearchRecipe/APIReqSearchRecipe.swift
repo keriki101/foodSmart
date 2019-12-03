@@ -22,7 +22,7 @@ class APIRequest {
         self.query = query
     }
     
- func getReturn(completed: @escaping([getRecipe]) -> Void?) {
+ func getReturn(completed: @escaping(getRecipe) -> Void?) {
         // TODO MAJOR!
         // Expressions are not allowed at top level will occur otherwise
         //
@@ -49,13 +49,12 @@ class APIRequest {
                         
                         do{
                             print(dataString)
-                            let decoder = try JSONDecoder().decode([getRecipe].self, from: data)
+                            let decoder = try JSONDecoder().decode(getRecipe.self, from: data)
                             completed(decoder)
                         }
                         catch{
+                            print("error\n")
                             print(error.localizedDescription)
-                            completed([])
-                            
                         }
                     }
                 }
