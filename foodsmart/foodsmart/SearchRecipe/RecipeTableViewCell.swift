@@ -28,3 +28,4 @@ class RecipeTableViewCell: UITableViewCell {
     }
 
 }
+//onödi kommentar
