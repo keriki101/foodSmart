@@ -107,15 +107,26 @@ class FridgeViewController: UIViewController {
         }
         
         
-        print(searchRecipeByIngredient)
+        //print(searchRecipeByIngredient)
         
         let request = APIRequestIngredients.instance
-        request.a = searchRecipeByIngredient
-        request.getReturn { result in
+        request.ingredients = searchRecipeByIngredient
+        request.getReturn1 { result in
             switch result {
                 case .success(let resultYeah):
                     print(resultYeah.results)
-                
+                    for index in 0..<resultYeah.results.count {
+                            let id = resultYeah.results[index].id
+                            let title = resultYeah.results[index].title
+                            let image = resultYeah.results[index].image
+                            let ingredient = resultYeah.results[index].usedIngredientCount
+                            let recipes = RecipeIngredients(id: id, image: image, title: title, usedIngredientCount: ingredient)
+                            
+                        RecipeHandlerIngredients.instance.allRecipeResults.append(recipes)
+                        }
+                    /*DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }*/
                 
                 
                 case .failure(let error):

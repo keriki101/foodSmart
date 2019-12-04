@@ -10,13 +10,13 @@ import Foundation
 
 class APIRequestIngredients {
     static let instance = APIRequestIngredients()
-    var a: String = ""
+    var ingredients: String = ""
 
     //var query: String = ""
     var url: String = ""
     var testString: String = ""
 
-    func getReturn(completed: @escaping (Result<ResponseIngredients, Error>) -> Void) {
+    func getReturn1(completed: @escaping (Result<ResponseIngredients, Error>) -> Void) {
         // TODO MAJOR!
         // Expressions are not allowed at top level will occur otherwise
         //
@@ -26,7 +26,7 @@ class APIRequestIngredients {
             "x-rapidapi-key": "e44daac5e0mshc682df24497a89fp1c4513jsn7067934f0b9b"
         ]
 
-        var request = URLRequest(url: URL(string: "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=10&ranking=1&ignorePantry=false&ingredients=\(a)")!,
+        var request = URLRequest(url: URL(string: "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=10&ranking=1&ignorePantry=false&ingredients=\(ingredients)")!,
                                  cachePolicy: .useProtocolCachePolicy,
                                  timeoutInterval: 10.0)
         print(request)
@@ -38,7 +38,7 @@ class APIRequestIngredients {
             if let error = error { completed(.failure(error));  return }
             do {
                 let result = try JSONDecoder().decode(ResponseIngredients.self, from: data!)
-                print(result)
+
                 completed(.success(result))
             } catch {
                 completed(.failure(error))

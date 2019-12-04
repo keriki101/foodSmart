@@ -11,6 +11,7 @@
 		06F2B8622398112300B59613 /* APISearchRecipeByIngredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F2B8612398112300B59613 /* APISearchRecipeByIngredients.swift */; };
 		06F2B8642398129800B59613 /* BodyReturnIngredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F2B8632398129800B59613 /* BodyReturnIngredients.swift */; };
 		06F2B8662398138200B59613 /* RecipeIngredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F2B8652398138200B59613 /* RecipeIngredients.swift */; };
+		06F2B868239837C000B59613 /* RecipeHandlerIngredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F2B867239837C000B59613 /* RecipeHandlerIngredients.swift */; };
 		4B5B0339239007920011917C /* APIReqSearchRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5B0338239007920011917C /* APIReqSearchRecipe.swift */; };
 		4B6386892397E2AC00C31EDF /* RecipeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6386882397E2AC00C31EDF /* RecipeHandler.swift */; };
 		4B6877852395485C00203BA9 /* BodyReturn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6877842395485C00203BA9 /* BodyReturn.swift */; };
@@ -36,6 +37,7 @@
 		06F2B8612398112300B59613 /* APISearchRecipeByIngredients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APISearchRecipeByIngredients.swift; sourceTree = "<group>"; };
 		06F2B8632398129800B59613 /* BodyReturnIngredients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyReturnIngredients.swift; sourceTree = "<group>"; };
 		06F2B8652398138200B59613 /* RecipeIngredients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeIngredients.swift; sourceTree = "<group>"; };
+		06F2B867239837C000B59613 /* RecipeHandlerIngredients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeHandlerIngredients.swift; sourceTree = "<group>"; };
 		4B5B0338239007920011917C /* APIReqSearchRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIReqSearchRecipe.swift; sourceTree = "<group>"; };
 		4B6386882397E2AC00C31EDF /* RecipeHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeHandler.swift; sourceTree = "<group>"; };
 		4B6877842395485C00203BA9 /* BodyReturn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyReturn.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				06F2B8612398112300B59613 /* APISearchRecipeByIngredients.swift */,
 				06F2B8632398129800B59613 /* BodyReturnIngredients.swift */,
 				06F2B8652398138200B59613 /* RecipeIngredients.swift */,
+				06F2B867239837C000B59613 /* RecipeHandlerIngredients.swift */,
 			);
 			path = WhatsInYourFridge;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 				4BBA1ECD238E875900310774 /* RecipeViewController.swift in Sources */,
 				4B6386892397E2AC00C31EDF /* RecipeHandler.swift in Sources */,
 				06F2B8662398138200B59613 /* RecipeIngredients.swift in Sources */,
+				06F2B868239837C000B59613 /* RecipeHandlerIngredients.swift in Sources */,
 				06F2B8642398129800B59613 /* BodyReturnIngredients.swift in Sources */,
 				06F2B8622398112300B59613 /* APISearchRecipeByIngredients.swift in Sources */,
 				06F2B86023980DDB00B59613 /* FridgeResultsViewController.swift in Sources */,

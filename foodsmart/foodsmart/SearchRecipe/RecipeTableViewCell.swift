@@ -13,7 +13,7 @@ class RecipeTableViewCell: UITableViewCell {
     
     @IBOutlet weak var recipeImage: UIImageView!
     
-    @IBOutlet weak var favoriteImage: UIButton!
+    //@IBOutlet weak var favoriteImage: UIButton!
     
     @IBOutlet weak var recipeTitle: UILabel!
     
@@ -25,7 +25,7 @@ class RecipeTableViewCell: UITableViewCell {
         super.prepareForReuse()
            
         // reset (hide) the image
-        self.favoriteImage.isHidden = true
+        //self.favoriteImage.isHidden = true
     }
 
     
