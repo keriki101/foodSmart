@@ -50,6 +50,7 @@ extension RecipeViewController: UISearchBarDelegate{
             switch result {
                 case .success(let resultYeah):
                     print(resultYeah.results)
+                    print("nej härifrån")
                     //RecipeHandler.instance.allRecipeResults = resultYeah.results
                 
                 case .failure(let error):

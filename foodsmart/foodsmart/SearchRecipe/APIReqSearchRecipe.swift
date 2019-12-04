@@ -34,15 +34,20 @@ class APIRequest {
                                  timeoutInterval: 10.0)
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = headers
-
+        
+        var listOfRecipes: [Response] = []
+        
         let session = URLSession.shared
         let dataTask = session.dataTask(with: request) { (data, response, error) -> Void in
             if let error = error { completed(.failure(error));  return }
             do {
-                let result = try JSONDecoder().decode(Response.self, from: data!)
-                completed(.success(result))
+                let result = try JSONSerialization.jsonObject(with: data!, options: [])
+                if let object = result as? [String: Any]{
+                    completed(.success(object))
+                    print("det printas härifrån")
+                }
                 
-            } catch {
+            } catch(let error) {
                 completed(.failure(error))
             }
         }
