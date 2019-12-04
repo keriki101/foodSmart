@@ -11,5 +11,5 @@ import Foundation
 class RecipeHandlerIngredients {
     static let instance = RecipeHandlerIngredients()
     
-    var allRecipeResults: [RecipeIngredients] = []
+    var allRecipeResults: [ResultIngredients] = []
 }

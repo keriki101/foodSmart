@@ -98,6 +98,7 @@ class FridgeViewController: UIViewController {
     }
     
     @IBAction func searchRecipeTapped(_ sender: Any) {
+        searchRecipeByIngredient = ""
         for index in 0..<ingredientsInFridge.count {
             if(index==0){
             searchRecipeByIngredient += "\(ingredientsInFridge[index])"
@@ -117,16 +118,8 @@ class FridgeViewController: UIViewController {
         request.getReturn1{ res in
             switch res{
             case .success(let result):
-                for index in 0..<result.count{
-                    let id = result[index].id
-                    let title = result[index].title
-                    let image = result[index].image
-                    let usedIngredientCount = result[index].usedIngredientCount
-                    let recipes = RecipeIngredients(id: id, image: image, title: title, usedIngredientCount: usedIngredientCount)
-                    print(recipes)
-                    RecipeHandlerIngredients.instance.allRecipeResults.append(recipes)
-                    
-                }
+                RecipeHandlerIngredients.instance.allRecipeResults = result
+                print(RecipeHandlerIngredients.instance.allRecipeResults)
                 /*let req = RecipeHandlerIngredients.instance
                 print(req.allRecipeResults)
                 */

@@ -26,7 +26,7 @@ class APIRequestIngredients {
             "x-rapidapi-key": "e44daac5e0mshc682df24497a89fp1c4513jsn7067934f0b9b"
         ]
 
-        var request = URLRequest(url: URL(string: "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=10&ranking=1&ignorePantry=false&ingredients=\(ingredients)")!,
+        var request = URLRequest(url: URL(string: "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=5&ranking=1&ignorePantry=false&ingredients=\(ingredients)")!,
                                  cachePolicy: .useProtocolCachePolicy,
                                  timeoutInterval: 10.0)
         print(request)
