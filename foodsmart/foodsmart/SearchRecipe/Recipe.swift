@@ -8,7 +8,7 @@
 
 import Foundation
 
-class recipe: Codable {
+class Recipe: Codable {
     let id: Int
     let image: String
     let title: String

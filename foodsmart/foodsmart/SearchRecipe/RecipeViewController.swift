@@ -17,9 +17,8 @@ class RecipeViewController: UITableViewController {
 
         recipeTable.delegate = self
         recipeTable.dataSource = self
-        for i in 0..<10 {
-            let getRecipe = recipe(id: 0, title: "Title \(i) ", readyInMinutes: 0)
-        }
+        
+        
         recipeTable.reloadData()       
     }
 }
@@ -49,9 +48,17 @@ extension RecipeViewController: UISearchBarDelegate{
         request.getReturn { result in
             switch result {
                 case .success(let resultYeah):
-                    print(resultYeah.results)
-                    print("nej härifrån")
-                    //RecipeHandler.instance.allRecipeResults = resultYeah.results
+                    for index in 0..<resultYeah.results.count {
+                            let id = resultYeah.results[index].id
+                            let title = resultYeah.results[index].title
+                            let image = resultYeah.results[index].image
+                            let ready = resultYeah.results[index].readyInMinutes
+                            let recipes = Recipe(id: id, image: image, title: title, readyInMinutes: ready)
+                            RecipeHandler.instance.allRecipeResults.append(recipes)
+                        }
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
                 
                 case .failure(let error):
                     print(error)
