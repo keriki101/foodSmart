@@ -16,7 +16,7 @@ class APIRequestIngredients {
     var url: String = ""
     var testString: String = ""
 
-    func getReturn1(completed: @escaping ([ResultIngredients]?, Error?) -> Void) {
+    func getReturn1(completed: @escaping (Result<[ResultIngredients], Error>) -> Void) {
         // TODO MAJOR!
         // Expressions are not allowed at top level will occur otherwise
         //
@@ -36,14 +36,14 @@ class APIRequestIngredients {
         let session = URLSession.shared
         let dataTask = session.dataTask(with: request) { (data, response, error) -> Void in
             
-            if let error = error { completed(nil,error);  return }
+            if let error = error { completed(.failure(error));  return }
             
             //successful
             do{
                 let result = try JSONDecoder().decode([ResultIngredients].self, from: data!)
-                completed(result,nil)
+                completed(.success(result))
             }catch let jsonError{
-                completed(nil,jsonError)
+                completed(.failure(jsonError))
             }
             
             
