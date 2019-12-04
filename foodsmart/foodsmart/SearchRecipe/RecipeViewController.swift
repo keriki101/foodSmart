@@ -30,7 +30,11 @@ extension RecipeViewController{
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeCell") as? RecipeTableViewCell{
             let recipeItem = RecipeHandler.instance.allRecipeResults[indexPath.row]
-            cell.recipeImage.image = UIImage(systemName: recipeItem.image)
+            if let url = URL(string: "https://spoonacular.com/recipeImages/\(recipeItem.id)-90x90.jpg"){
+                if let data = try? Data(contentsOf: url){
+                    cell.recipeImage.image = UIImage(data: data)
+                }
+            }
             cell.recipeTitle.text = recipeItem.title
             cell.recipeTime.text = "\(recipeItem.readyInMinutes)"
             return cell
