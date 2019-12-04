@@ -23,6 +23,8 @@
 		E7998C25238C0AC300617C4A /* ShoppingCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7998C24238C0AC300617C4A /* ShoppingCartViewController.swift */; };
 		E7998C27238C614C00617C4A /* IngredientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7998C26238C614C00617C4A /* IngredientCell.swift */; };
 		E7EAF3142387D75C00A7D3E3 /* SlideInTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EAF3132387D75C00A7D3E3 /* SlideInTransition.swift */; };
+		E7F91EAA2391735700F20353 /* FridgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F91EA92391735700F20353 /* FridgeViewController.swift */; };
+		E7F91EAC2391746500F20353 /* fridgeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F91EAB2391746500F20353 /* fridgeCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		E7998C24238C0AC300617C4A /* ShoppingCartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartViewController.swift; sourceTree = "<group>"; };
 		E7998C26238C614C00617C4A /* IngredientCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientCell.swift; sourceTree = "<group>"; };
 		E7EAF3132387D75C00A7D3E3 /* SlideInTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInTransition.swift; sourceTree = "<group>"; };
+		E7F91EA92391735700F20353 /* FridgeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FridgeViewController.swift; sourceTree = "<group>"; };
+		E7F91EAB2391746500F20353 /* fridgeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fridgeCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +77,6 @@
 		4BEACBBD2386B80B00BD9FE6 = {
 			isa = PBXGroup;
 			children = (
-				E7998C26238C614C00617C4A /* IngredientCell.swift */,
 				4BEACBC82386B80B00BD9FE6 /* foodsmart */,
 				4BEACBC72386B80B00BD9FE6 /* Products */,
 			);
@@ -90,8 +93,9 @@
 		4BEACBC82386B80B00BD9FE6 /* foodsmart */ = {
 			isa = PBXGroup;
 			children = (
+				E7F91EA82391731C00F20353 /* WhatsInYourFridge */,
 				4BBA1ECB238E867E00310774 /* SearchRecipe */,
-				E750FCCA2386C70000A9DCDC /* ViewController */,
+				E750FCCA2386C70000A9DCDC /* ShoppingCart */,
 				4BEACBC92386B80B00BD9FE6 /* AppDelegate.swift */,
 				4BEACBCB2386B80B00BD9FE6 /* SceneDelegate.swift */,
 				4BEACBCF2386B80B00BD9FE6 /* Main.storyboard */,
@@ -102,15 +106,25 @@
 			path = foodsmart;
 			sourceTree = "<group>";
 		};
-		E750FCCA2386C70000A9DCDC /* ViewController */ = {
+		E750FCCA2386C70000A9DCDC /* ShoppingCart */ = {
 			isa = PBXGroup;
 			children = (
 				E750FCC82386C59F00A9DCDC /* HomeViewController.swift */,
 				E750FCCB2386CA5400A9DCDC /* MenuViewController.swift */,
-				E7998C24238C0AC300617C4A /* ShoppingCartViewController.swift */,
 				E7EAF3132387D75C00A7D3E3 /* SlideInTransition.swift */,
+				E7998C26238C614C00617C4A /* IngredientCell.swift */,
+				E7998C24238C0AC300617C4A /* ShoppingCartViewController.swift */,
 			);
-			path = ViewController;
+			path = ShoppingCart;
+			sourceTree = "<group>";
+		};
+		E7F91EA82391731C00F20353 /* WhatsInYourFridge */ = {
+			isa = PBXGroup;
+			children = (
+				E7F91EA92391735700F20353 /* FridgeViewController.swift */,
+				E7F91EAB2391746500F20353 /* fridgeCell.swift */,
+			);
+			path = WhatsInYourFridge;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,12 +204,14 @@
 				4BBA1ED3238E929E00310774 /* RecipeTableViewCell.swift in Sources */,
 				4BEACBCC2386B80B00BD9FE6 /* SceneDelegate.swift in Sources */,
 				E7998C25238C0AC300617C4A /* ShoppingCartViewController.swift in Sources */,
+				E7F91EAC2391746500F20353 /* fridgeCell.swift in Sources */,
 				E750FCC92386C59F00A9DCDC /* HomeViewController.swift in Sources */,
 				4BBA1ECD238E875900310774 /* RecipeViewController.swift in Sources */,
 				4B6386892397E2AC00C31EDF /* RecipeHandler.swift in Sources */,
 				E750FCCC2386CA5400A9DCDC /* MenuViewController.swift in Sources */,
 				4BBA1ECF238E876E00310774 /* Recipe.swift in Sources */,
 				E7EAF3142387D75C00A7D3E3 /* SlideInTransition.swift in Sources */,
+				E7F91EAA2391735700F20353 /* FridgeViewController.swift in Sources */,
 				E7998C27238C614C00617C4A /* IngredientCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -341,14 +357,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = L85P77V37J;
+				DEVELOPMENT_TEAM = K7DRTK9795;
 				INFOPLIST_FILE = foodsmart/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Pontus-Schavon";
+				PRODUCT_BUNDLE_IDENTIFIER = foodSmart;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -360,14 +376,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = L85P77V37J;
+				DEVELOPMENT_TEAM = K7DRTK9795;
 				INFOPLIST_FILE = foodsmart/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Pontus-Schavon";
+				PRODUCT_BUNDLE_IDENTIFIER = foodSmart;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

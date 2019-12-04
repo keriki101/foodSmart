@@ -8,6 +8,15 @@
 
 import Foundation
 
+class getRecipe {
+    var result = [APIRequest]()
+    
+    init(result:[APIRequest]) {
+        self.result = result
+    }
+    
+}
+
 class APIRequest {
     static let instance = APIRequest()
 

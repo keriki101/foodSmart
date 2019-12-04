@@ -9,19 +9,40 @@
 import UIKit
 
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UIScrollViewDelegate {
     
     let transition = SlideInTransition()
     var topView: UIView?
+    var menu = MenuViewController()
+    @IBOutlet weak var homePageControll: UIPageControl!
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    let imagesArray = ["foodBlur", "pizza", "iceCream"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        homePageControll.numberOfPages = imagesArray.count
         
-
+        // Loop through the image array and set the name and scale
+        for i in 0..<imagesArray.count {
+            let imageView = UIImageView()
+            imageView.contentMode = .scaleToFill
+            imageView.image = UIImage(named: imagesArray[i])
+            let xPos = CGFloat(i)*self.view.bounds.size.width
+            imageView.frame = CGRect(x: xPos, y: 0, width: view.frame.size.width, height: scrollView.frame.size.height)
+            scrollView.contentSize.width = view.frame.size.width*CGFloat(i+1)
+            scrollView.addSubview(imageView)
+        }
     }
     
-
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+       
+        let page = scrollView.contentOffset.x/scrollView.frame.width
+        homePageControll.currentPage = Int(page)
+    }
+    
+    
     @IBAction func menuButtonPressed(_ sender: UIBarButtonItem) {
         
         guard let menuViewController = storyboard?.instantiateViewController(withIdentifier: "MenuViewController") as? MenuViewController else { return }
@@ -32,6 +53,7 @@ class HomeViewController: UIViewController {
         menuViewController.transitioningDelegate = self
         present(menuViewController, animated: true)
     }
+    
     
     func transitionToNewViewController(_ menuType: MenuType) {
         
