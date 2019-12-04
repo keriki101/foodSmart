@@ -17,7 +17,7 @@ class RecipeViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         recipeTable.delegate = self
         recipeTable.dataSource = self
         

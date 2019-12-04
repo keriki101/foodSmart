@@ -253,7 +253,6 @@
         <!--Shopping Cart View Controller-->
         <scene sceneID="q6t-Vb-Kks">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lbV-zs-m5u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="shoppingCartVC" id="gxH-MM-83Q" customClass="ShoppingCartViewController" customModule="foodsmart" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DDf-P9-aRF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -380,6 +379,7 @@
                         <outlet property="ingredientList" destination="Kup-nN-ebd" id="RQN-9b-vuF"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lbV-zs-m5u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2715.9420289855075" y="862.5"/>
         </scene>
