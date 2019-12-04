@@ -114,12 +114,26 @@ class FridgeViewController: UIViewController {
         let request = APIRequestIngredients.instance
         request.ingredients = searchRecipeByIngredient
         
-        request.getReturn1{ (res) in
+        request.getReturn1{ res in
             switch res{
             case .success(let result):
-                result.forEach({ (results) in
-                    print(results.title)
-                })
+                for index in 0..<result.count{
+                    let id = result[index].id
+                    let title = result[index].title
+                    let image = result[index].image
+                    let usedIngredientCount = result[index].usedIngredientCount
+                    let recipes = RecipeIngredients(id: id, image: image, title: title, usedIngredientCount: usedIngredientCount)
+                    print(recipes)
+                    RecipeHandlerIngredients.instance.allRecipeResults.append(recipes)
+                    
+                }
+                /*let req = RecipeHandlerIngredients.instance
+                print(req.allRecipeResults)
+                */
+                /*result.forEach({ (results) in
+                    print(results.id)
+                    print("hej")
+                })*/
             case .failure(let error):
                 print("Failed to fetch recipes:", error)
             }
