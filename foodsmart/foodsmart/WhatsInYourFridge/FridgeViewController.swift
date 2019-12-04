@@ -17,6 +17,7 @@ class FridgeViewController: UIViewController {
     @IBOutlet weak var deleteButton: UIButton!
     
     var ingredientsInFridge: [String] = ["curry"]
+    var searchRecipeByIngredient: String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +45,8 @@ class FridgeViewController: UIViewController {
     func insertNewIngredientTitle() {
             
         ingredientsInFridge.append(addIngredientTextField.text!)
+        
+            
         // save the new ingredient
         UserDefaults.standard.set(ingredientsInFridge, forKey: "saveIngredientInFridge")
         let indexPath = IndexPath(row: ingredientsInFridge.count - 1, section: 0)
@@ -89,12 +92,36 @@ class FridgeViewController: UIViewController {
             return
         } else {
             insertNewIngredientTitle()
+            
         }
     }
     
     @IBAction func searchRecipeTapped(_ sender: Any) {
+        for index in 0..<ingredientsInFridge.count {
+            if(index==0){
+            searchRecipeByIngredient += "\(ingredientsInFridge[index])"
+            }else{
+                searchRecipeByIngredient += "%252C\(ingredientsInFridge[index])"
+            }
+            
+        }
         
         
+        print(searchRecipeByIngredient)
+        
+        let request = APIRequestIngredients.instance
+        request.a = searchRecipeByIngredient
+        request.getReturn { result in
+            switch result {
+                case .success(let resultYeah):
+                    print(resultYeah.results)
+                
+                
+                
+                case .failure(let error):
+                    print(error)
+            }
+        }
         
         
     }
