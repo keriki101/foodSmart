@@ -10,8 +10,8 @@ import Foundation
 
 //Codable to easily switch between json data to useful info via encode/decode
 
-struct Root: Decodable{
-    struct Recipe: Decodable{
+class Recipe: Decodable{
+    struct Results {
         let recipe : [String:Recipe]
         let id: Int = 0
         let title: String = ""
@@ -19,13 +19,13 @@ struct Root: Decodable{
         let image: String
         let imageUrls: [String]
     }
-    extension Recipe:Decodable{
-        init(from decoder: Decoder) throws {
-            let container = try decoder.container(keyedBy: CodingKeys.self)
-            let recipeData = try container.decode([String:Recipe].self, forKey: .results)
-            let recipe = Array(recipeData.values)
-        }
-    }
+   let baseUri: String
+   let offset: Int
+   let number: Int
+   let totalResults: Int
+   let processingTimeMs: Int
+   let expires: Int
+   let isStale: Bool
     
 
 }

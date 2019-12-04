@@ -17,11 +17,8 @@ class RecipeViewController: UIViewController {
         
         testLabel.text = "AAA"
         Resthandler.getReturn(completed: { result in
-            print(result[0].title)
-            DispatchQueue.main.async {
-                self.testLabel.text = result[0].title
-                
-            }
+            
+           
 
         })
         // Do any additional setup after loading the view.

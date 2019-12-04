@@ -33,6 +33,7 @@ class Resthandler {
         
         
         var listOfRecipes: [Recipe] = []
+        
         let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
             let decoder = JSONDecoder()
             if (error != nil) {
@@ -43,14 +44,23 @@ class Resthandler {
                 //print(httpResponse)
                 print("nästran innen")
                 do {
-                    let recipe = try decoder.decode([Recipe].self, from: data!)
-                    listOfRecipes = recipe
                     print("KUKENEEEENENE")
-                    completed?(listOfRecipes)
+                    let json = try JSONSerialization.jsonObject(with: data!, options: [])
+                    if let object = json as? [String: Any] {
+                        print("inne i object json")
+                        print(object)
+                        for anItem in object as! [Dictionary<String, AnyObject>] {
+                            let recipeTitle = anItem["title"] as! String
+                            let recipeID = anItem["id"] as! Int
+                            
+                        }
+                    }
+                    
+                    
                 }
                 catch (let error){
                     print(error)
-                    print("Error i catch")
+                    print("Error i catch, Allt i ditt liv är trasigt!!!")
                 }
             }
         })

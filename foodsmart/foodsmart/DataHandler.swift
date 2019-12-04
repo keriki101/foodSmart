@@ -11,7 +11,7 @@ import Foundation
 class DataHandler {
     static let instance = DataHandler()
     
-    private var recipe: Recipe?
+    private var recipe: Recipe.Results?
     
     func getRecipeUrl() -> URL? {
         if let url = recipe?.title {
@@ -23,8 +23,5 @@ class DataHandler {
         return nil
     }
     
-    func setRecipe(_ recipe: Recipe) {
-        self.recipe = recipe
-        StorageHandler.setRecipeUrl(recipe.title)
-    }
+   
 }
