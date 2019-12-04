@@ -8,14 +8,15 @@
 
 import Foundation
 
-struct ResponseIngredients: Codable {
-    struct Result: Codable {
+//struct ResponseIngredients: Codable {
+    struct ResultIngredients: Codable {
         let id: Int
         let title: String
         let image: String
         let usedIngredientCount: Int
-        }
-    let results: [Result]
-}
+        //let results: [ResultIngredients]
+    }
+
+//}
 
 

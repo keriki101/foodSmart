@@ -22,6 +22,7 @@ class FridgeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         saveIngredient()
         updateDeleteButtonStatus()
 
@@ -109,9 +110,20 @@ class FridgeViewController: UIViewController {
         
         //print(searchRecipeByIngredient)
         
+        
         let request = APIRequestIngredients.instance
         request.ingredients = searchRecipeByIngredient
-        request.getReturn1 { result in
+        request.getReturn1 { (result, Error) in
+            /*if let error = error{
+                print("Failed to fetch recipes:", error)
+                return
+            }*/
+            result?.forEach({ (results) in
+                print(results.title)
+                
+            })
+        }
+        /*request.getReturn1 { result in
             switch result {
                 case .success(let resultYeah):
                     print(resultYeah.results)
@@ -132,7 +144,7 @@ class FridgeViewController: UIViewController {
                 case .failure(let error):
                     print(error)
             }
-        }
+        }*/
         
         
     }
