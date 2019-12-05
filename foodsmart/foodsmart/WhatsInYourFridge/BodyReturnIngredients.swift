@@ -15,6 +15,7 @@ import Foundation
         let image: String
         let usedIngredientCount: Int
         //let results: [ResultIngredients]
+        
     }
 
 //}

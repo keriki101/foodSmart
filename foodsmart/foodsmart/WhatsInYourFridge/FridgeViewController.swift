@@ -107,33 +107,38 @@ class FridgeViewController: UIViewController {
             }
             
         }
+        performSegue(withIdentifier: "seg", sender: self)
+            
+        
+        
         
         
         //print(searchRecipeByIngredient)
         
         
-        let request = APIRequestIngredients.instance
-        request.ingredients = searchRecipeByIngredient
+//        let request = APIRequestIngredients.instance
+//        request.ingredients = searchRecipeByIngredient
+//
+//        request.getReturn1{ res in
+//            switch res{
+//            case .success(let result):
+//                RecipeHandlerIngredients.instance.allRecipeResults = result
+//                print(RecipeHandlerIngredients.instance.allRecipeResults)
+//                /*let req = RecipeHandlerIngredients.instance
+//                print(req.allRecipeResults)
+//                */
+//                /*result.forEach({ (results) in
+//                    print(results.id)
+//                    print("hej")
+//                })*/
+//            case .failure(let error):
+//                print("Failed to fetch recipes:", error)
+//            }
+//
+//
+//
+//        }
         
-        request.getReturn1{ res in
-            switch res{
-            case .success(let result):
-                RecipeHandlerIngredients.instance.allRecipeResults = result
-                print(RecipeHandlerIngredients.instance.allRecipeResults)
-                /*let req = RecipeHandlerIngredients.instance
-                print(req.allRecipeResults)
-                */
-                /*result.forEach({ (results) in
-                    print(results.id)
-                    print("hej")
-                })*/
-            case .failure(let error):
-                print("Failed to fetch recipes:", error)
-            }
-            
-            
-
-        }
         /*request.getReturn1 { (result, Error) in
             /*if let error = error{
                 print("Failed to fetch recipes:", error)
@@ -240,6 +245,12 @@ class FridgeViewController: UIViewController {
         func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
             updateDeleteButtonStatus()
         }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is FridgeResultsViewController{
+            let vc = segue.destination as? FridgeResultsViewController
+            vc?.searchRecipeByIngredient = self.searchRecipeByIngredient
+        }
+    }
     
 }
 
