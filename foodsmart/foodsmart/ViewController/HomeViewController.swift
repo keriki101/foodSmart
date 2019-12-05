@@ -58,7 +58,6 @@ class HomeViewController: UIViewController {
             view.addSubview(shoopingCart.view)
             self.topView = shoopingCart.view
             addChild(shoopingCart)
-            
         default:
             break
         }

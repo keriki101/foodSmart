@@ -15,6 +15,7 @@ enum MenuType: Int {
     case searchReciepe
     case whatsInYourFridge
     case shoppingCart
+    case recipeDetail
 }
 
 

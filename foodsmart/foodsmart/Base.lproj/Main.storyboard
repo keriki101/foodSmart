@@ -403,6 +403,10 @@
                                         <constraint firstAttribute="bottom" secondItem="Lbv-IS-lEu" secondAttribute="bottom" constant="29" id="zsR-L1-3g9"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                    <bool key="isElement" value="NO"/>
+                                </accessibility>
                                 <connections>
                                     <outlet property="recipeImage" destination="uEl-wR-Yow" id="QdE-rX-o0o"/>
                                     <outlet property="recipeTime" destination="Lbv-IS-lEu" id="8RT-zn-eJ5"/>
