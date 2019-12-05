@@ -17,12 +17,15 @@ class RecipeViewController: UITableViewController {
     @IBOutlet var recipeTable: UITableView!
     
     var urlString: String = ""
+    var searching = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         recipeTable.delegate = self
         recipeTable.dataSource = self
+        
+        tableView.keyboardDismissMode = .onDrag
         
         recipeTable.reloadData()       
     }
@@ -73,14 +76,17 @@ extension RecipeViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeCell") as? RecipeTableViewCell{
-            let recipeItem = RecipeHandler.instance.allRecipeResults[indexPath.row]
-            if let url = URL(string: "https://spoonacular.com/recipeImages/\(recipeItem.id)-90x90.jpg"){
-                if let data = try? Data(contentsOf: url){
-                    cell.recipeImage.image = UIImage(data: data)
+            if searching{
+                let recipeItem = RecipeHandler.instance.allRecipeResults[indexPath.row]
+                if let url = URL(string: "https://spoonacular.com/recipeImages/\(recipeItem.id)-90x90.jpg"){
+                    if let data = try? Data(contentsOf: url){
+                        cell.recipeImage.image = UIImage(data: data)
+                    }
                 }
+                cell.recipeTitle.text = recipeItem.title
+                cell.recipeTime.text = "\(recipeItem.readyInMinutes)"
             }
-            cell.recipeTitle.text = recipeItem.title
-            cell.recipeTime.text = "\(recipeItem.readyInMinutes)"
+            
             return cell
         }
         return UITableViewCell()
@@ -90,6 +96,7 @@ extension RecipeViewController {
 //MARK: - SearchBarSearchButtinClicked
 extension RecipeViewController: UISearchBarDelegate{
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searching = true
         guard let searchBarText = searchBar.text else {return}
         let request = APIRequest.instance
         request.query = searchBarText
@@ -145,6 +152,12 @@ extension RecipeViewController: UISearchBarDelegate{
                 print(error)
             }
         }
+    }
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searching = false
+        searchBar.text = ""
+        RecipeHandler.instance.allRecipeResults.removeAll()
+        tableView.reloadData()
     }
 }
 

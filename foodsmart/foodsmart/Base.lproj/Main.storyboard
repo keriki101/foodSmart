@@ -541,7 +541,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="minimal" placeholder="Search recipe here..." id="BjL-vn-OLP">
+                        <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="minimal" placeholder="Search recipe here..." showsCancelButton="YES" id="BjL-vn-OLP">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
@@ -562,8 +562,8 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aei-DO-Pzb">
-                                            <rect key="frame" x="124" y="14.000000000000002" width="278" height="24.666666666666671"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <rect key="frame" x="124" y="14" width="278" height="24"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -574,10 +574,17 @@
                                                 <constraint firstAttribute="height" constant="100" id="xqc-qd-HI0"/>
                                             </constraints>
                                         </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cooking Time(min): " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ozb-5Y-dld">
+                                            <rect key="frame" x="120" y="75.666666666666671" width="155" height="18.666666666666671"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lbv-IS-lEu">
-                                            <rect key="frame" x="124" y="71.666666666666671" width="278" height="16.333333333333329"/>
+                                            <rect key="frame" x="284" y="77" width="118" height="16"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="16.333333333333329" id="Uan-QM-dZG"/>
+                                                <constraint firstAttribute="width" constant="118" id="N3F-Xr-uqJ"/>
+                                                <constraint firstAttribute="height" constant="16" id="wtK-tP-zxn"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -587,14 +594,15 @@
                                     <constraints>
                                         <constraint firstItem="uEl-wR-Yow" firstAttribute="top" secondItem="0cF-WS-A2t" secondAttribute="top" constant="12" id="2qa-bp-mOB"/>
                                         <constraint firstAttribute="trailing" secondItem="aei-DO-Pzb" secondAttribute="trailing" constant="12" id="5at-Cl-sZN"/>
-                                        <constraint firstItem="Lbv-IS-lEu" firstAttribute="top" secondItem="aei-DO-Pzb" secondAttribute="bottom" constant="33.000000000000014" id="Dpn-ic-qpZ"/>
+                                        <constraint firstItem="Lbv-IS-lEu" firstAttribute="centerY" secondItem="Ozb-5Y-dld" secondAttribute="centerY" id="8H3-Wi-bu7"/>
+                                        <constraint firstItem="Lbv-IS-lEu" firstAttribute="trailing" secondItem="aei-DO-Pzb" secondAttribute="trailing" id="CxQ-gc-v6K"/>
+                                        <constraint firstItem="Ozb-5Y-dld" firstAttribute="top" secondItem="aei-DO-Pzb" secondAttribute="bottom" constant="37.666666666666671" id="Lhg-yc-XaZ"/>
                                         <constraint firstItem="aei-DO-Pzb" firstAttribute="leading" secondItem="uEl-wR-Yow" secondAttribute="trailing" constant="12" id="N3W-zB-wby"/>
                                         <constraint firstItem="aei-DO-Pzb" firstAttribute="top" secondItem="0cF-WS-A2t" secondAttribute="top" constant="14" id="UKY-Sj-OyU"/>
-                                        <constraint firstItem="Lbv-IS-lEu" firstAttribute="leading" secondItem="aei-DO-Pzb" secondAttribute="leading" id="WZU-AW-VUd"/>
                                         <constraint firstItem="uEl-wR-Yow" firstAttribute="leading" secondItem="0cF-WS-A2t" secondAttribute="leading" constant="12" id="X3t-Mb-NCu"/>
                                         <constraint firstAttribute="bottom" secondItem="uEl-wR-Yow" secondAttribute="bottom" constant="12" id="cVG-K8-tce"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="Lbv-IS-lEu" secondAttribute="bottom" constant="17.999999999999986" id="gpF-Gt-oQD"/>
-                                        <constraint firstItem="Lbv-IS-lEu" firstAttribute="trailing" secondItem="aei-DO-Pzb" secondAttribute="trailing" id="vLo-JW-WUV"/>
+                                        <constraint firstItem="Ozb-5Y-dld" firstAttribute="leading" secondItem="uEl-wR-Yow" secondAttribute="trailing" constant="8" id="fzQ-IZ-6ZG"/>
+                                        <constraint firstItem="Lbv-IS-lEu" firstAttribute="top" secondItem="aei-DO-Pzb" secondAttribute="bottom" constant="39" id="hyR-Oi-dCh"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <accessibility key="accessibilityConfiguration">
