@@ -10,26 +10,23 @@
 import Foundation
 
 class StorageHandler{
-    var idArray: [Int] = []
-    let idNumber: Int = 0
+    var urlArray: [String] = []
+    //let idNumber: Int = 0
     static let instance = StorageHandler()
-    init() {
-        
-    }
     
-    func storeId(_ id: Int) -> Void {
-        idArray.append(id)
+    func urlByIndex(_ indexPath: Int) -> String {
+        return urlArray[indexPath]
     }
-    func accessId(arrayLocation: Int) -> Int{
-        return idArray[arrayLocation]
+    func storeUrl(_ url: String) -> Void {
+        urlArray.append(url)
     }
     
     
     
-    func printIdsForTest() -> Void {
+    /*func printIdsForTest() -> Void {
         print(idArray)
         print(idArray[0])
-    }
+    }*/
     
     
     

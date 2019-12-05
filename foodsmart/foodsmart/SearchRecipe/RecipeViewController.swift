@@ -66,9 +66,7 @@ extension RecipeViewController {
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        UIApplication.shared.open(URL(string: "\(StorageHandler.instance.urlByIndex(indexPath.row))")! as URL, options: [:], completionHandler: nil)
-        print(StorageHandler.instance.urlByIndex(indexPath.row))
-        print("We are now on row \(indexPath.row)")
+        UIApplication.shared.open(URL(string: "\(StorageHandler.instance.urlByIndex(indexPath.row)))")! as URL, options: [:], completionHandler: nil)
     }
     
     
@@ -116,7 +114,7 @@ extension RecipeViewController: UISearchBarDelegate{
                         case .success(let urlDetail):
                             print("Hello from inside storageURL Success!!")
                             self.urlString = urlDetail.sourceUrl
-                            StorageHandler.instance.addUrl(self.urlString)
+                            StorageHandler.instance.storeUrl(self.urlString)
                         //StorageHandler.instance.printURL4Test()
                         case .failure(let error):
                             print(error)
