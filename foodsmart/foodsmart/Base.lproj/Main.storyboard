@@ -597,6 +597,10 @@
                                         <constraint firstItem="Lbv-IS-lEu" firstAttribute="trailing" secondItem="aei-DO-Pzb" secondAttribute="trailing" id="vLo-JW-WUV"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                    <bool key="isElement" value="NO"/>
+                                </accessibility>
                                 <connections>
                                     <outlet property="recipeImage" destination="uEl-wR-Yow" id="QdE-rX-o0o"/>
                                     <outlet property="recipeTime" destination="Lbv-IS-lEu" id="8RT-zn-eJ5"/>

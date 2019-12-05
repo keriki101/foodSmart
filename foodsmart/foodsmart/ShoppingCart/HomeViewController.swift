@@ -80,7 +80,6 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
             view.addSubview(shoopingCart.view)
             self.topView = shoopingCart.view
             addChild(shoopingCart)
-            
         default:
             break
         }

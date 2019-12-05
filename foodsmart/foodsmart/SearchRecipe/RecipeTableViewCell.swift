@@ -19,15 +19,7 @@ class RecipeTableViewCell: UITableViewCell {
     
     @IBOutlet weak var recipeTime: UILabel!
     
-    
-    override func prepareForReuse() {
-        // invoke superclass implementation
-        super.prepareForReuse()
-           
-        // reset (hide) the image
-        //self.favoriteImage.isHidden = true
-    }
-
+    @IBOutlet weak var button: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -38,8 +30,8 @@ class RecipeTableViewCell: UITableViewCell {
 
     }
     
-        
-    
+
+
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
