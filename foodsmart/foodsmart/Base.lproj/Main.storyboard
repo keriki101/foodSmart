@@ -575,16 +575,16 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cooking Time(min): " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ozb-5Y-dld">
-                                            <rect key="frame" x="120" y="75.666666666666671" width="155" height="18.666666666666671"/>
+                                            <rect key="frame" x="120" y="75.666666666666671" width="155" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lbv-IS-lEu">
-                                            <rect key="frame" x="284" y="77" width="118" height="16"/>
+                                            <rect key="frame" x="274" y="78" width="46" height="16"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="118" id="N3F-Xr-uqJ"/>
-                                                <constraint firstAttribute="height" constant="16" id="wtK-tP-zxn"/>
+                                                <constraint firstAttribute="width" constant="46" id="50S-7P-evi"/>
+                                                <constraint firstAttribute="height" constant="16" id="ggE-DR-zQY"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -594,15 +594,14 @@
                                     <constraints>
                                         <constraint firstItem="uEl-wR-Yow" firstAttribute="top" secondItem="0cF-WS-A2t" secondAttribute="top" constant="12" id="2qa-bp-mOB"/>
                                         <constraint firstAttribute="trailing" secondItem="aei-DO-Pzb" secondAttribute="trailing" constant="12" id="5at-Cl-sZN"/>
-                                        <constraint firstItem="Lbv-IS-lEu" firstAttribute="centerY" secondItem="Ozb-5Y-dld" secondAttribute="centerY" id="8H3-Wi-bu7"/>
-                                        <constraint firstItem="Lbv-IS-lEu" firstAttribute="trailing" secondItem="aei-DO-Pzb" secondAttribute="trailing" id="CxQ-gc-v6K"/>
+                                        <constraint firstItem="Lbv-IS-lEu" firstAttribute="leading" secondItem="Ozb-5Y-dld" secondAttribute="trailing" constant="-1" id="CQx-0U-hLg"/>
                                         <constraint firstItem="Ozb-5Y-dld" firstAttribute="top" secondItem="aei-DO-Pzb" secondAttribute="bottom" constant="37.666666666666671" id="Lhg-yc-XaZ"/>
                                         <constraint firstItem="aei-DO-Pzb" firstAttribute="leading" secondItem="uEl-wR-Yow" secondAttribute="trailing" constant="12" id="N3W-zB-wby"/>
                                         <constraint firstItem="aei-DO-Pzb" firstAttribute="top" secondItem="0cF-WS-A2t" secondAttribute="top" constant="14" id="UKY-Sj-OyU"/>
                                         <constraint firstItem="uEl-wR-Yow" firstAttribute="leading" secondItem="0cF-WS-A2t" secondAttribute="leading" constant="12" id="X3t-Mb-NCu"/>
+                                        <constraint firstItem="Lbv-IS-lEu" firstAttribute="top" secondItem="aei-DO-Pzb" secondAttribute="bottom" constant="40" id="Xpg-iv-sT1"/>
                                         <constraint firstAttribute="bottom" secondItem="uEl-wR-Yow" secondAttribute="bottom" constant="12" id="cVG-K8-tce"/>
                                         <constraint firstItem="Ozb-5Y-dld" firstAttribute="leading" secondItem="uEl-wR-Yow" secondAttribute="trailing" constant="8" id="fzQ-IZ-6ZG"/>
-                                        <constraint firstItem="Lbv-IS-lEu" firstAttribute="top" secondItem="aei-DO-Pzb" secondAttribute="bottom" constant="39" id="hyR-Oi-dCh"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <accessibility key="accessibilityConfiguration">
@@ -628,7 +627,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q2h-1M-gXE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2679.7101449275365" y="-613.39285714285711"/>
+            <point key="canvasLocation" x="2679.375" y="-613.73239436619724"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pZb-Tl-juB">

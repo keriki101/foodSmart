@@ -57,6 +57,14 @@ class RecipeViewController: UITableViewController {
      
      }*/
     
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+           searching = false
+           searchBar.text = ""
+           RecipeHandler.instance.allRecipeResults.removeAll()
+           StorageHandler.instance.urlArray.removeAll()
+           tableView.reloadData()
+       }
+    
 }
 
 //MARK: - Add cell
@@ -69,7 +77,9 @@ extension RecipeViewController {
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        UIApplication.shared.open(URL(string: "\(StorageHandler.instance.urlByIndex(indexPath.row)))")! as URL, options: [:], completionHandler: nil)
+        UIApplication.shared.open(URL(string: "\(StorageHandler.instance.urlByIndex(indexPath.row))")! as URL, options: [:], completionHandler: nil)
+        print(indexPath.row)
+        print(StorageHandler.instance.urlByIndex(indexPath.row))
     }
     
     
@@ -96,6 +106,13 @@ extension RecipeViewController {
 //MARK: - SearchBarSearchButtinClicked
 extension RecipeViewController: UISearchBarDelegate{
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        //if search text empty dont show anything
+        if searchBar.text == "" {
+            return
+        }
+       
+       //let word = searchBar.text?.replacingOccurrences(of: " ", with: "")
+        
         searching = true
         guard let searchBarText = searchBar.text else {return}
         let request = APIRequest.instance
@@ -103,6 +120,7 @@ extension RecipeViewController: UISearchBarDelegate{
         request.getReturn { result in
             switch result {
             case .success(let resultYeah):
+                //fetch the result from json and put in in recipe and append to allreciperesults
                 for index in 0..<resultYeah.results.count {
                     let id = resultYeah.results[index].id
                     let title = resultYeah.results[index].title
@@ -110,7 +128,6 @@ extension RecipeViewController: UISearchBarDelegate{
                     let ready = resultYeah.results[index].readyInMinutes
                     let recipes = Recipe(id: id, image: image, title: title, readyInMinutes: ready)
                     RecipeHandler.instance.allRecipeResults.append(recipes)
-                    //Stores the URL in the StorageHandler for easier access
                     
                     
                     
@@ -119,46 +136,28 @@ extension RecipeViewController: UISearchBarDelegate{
                     storageURL.getReturn { result in
                         switch result{
                         case .success(let urlDetail):
-                            print("Hello from inside storageURL Success!!")
                             self.urlString = urlDetail.sourceUrl
+                            print(self.urlString)
+
                             StorageHandler.instance.storeUrl(self.urlString)
-                        //StorageHandler.instance.printURL4Test()
                         case .failure(let error):
                             print(error)
                         }
                     }
-                    
-                    //                    let DetailInformation = APIRequestDetail.instance
-                    //                    DetailInformation.query = id
-                    //                    DetailInformation.getReturn { result in
-                    //                        switch result{
-                    //
-                    //                        case .success(let resultDetail):
-                    //                            self.urlString = resultDetail.sourceUrl
-                    //                            //print(self.urlString)
-                    //                        case .failure(let error):
-                    //                            print(error)
-                    //                        }
-                    //                    }
                 }
                 
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
-                //let x = StorageHandler.instance.urlByIndex(0)
-                //print(x)
                 
             case .failure(let error):
                 print(error)
             }
         }
     }
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searching = false
-        searchBar.text = ""
-        RecipeHandler.instance.allRecipeResults.removeAll()
-        tableView.reloadData()
-    }
+    
+    
+   
 }
 
 
