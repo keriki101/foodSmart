@@ -16,24 +16,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rOR-ud-Bdj">
-                                <rect key="frame" x="0.0" y="88" width="414" height="699"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                             </scrollView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Du6-Oj-T4Z">
-                                <rect key="frame" x="164" y="776" width="96" height="37"/>
-                                <color key="pageIndicatorTintColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <color key="currentPageIndicatorTintColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </pageControl>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="rOR-ud-Bdj" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="1Jk-Gb-PlR"/>
-                            <constraint firstItem="rOR-ud-Bdj" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-26" id="2Sz-ei-C5o"/>
-                            <constraint firstItem="Du6-Oj-T4Z" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="164" id="4fy-hK-hLB"/>
+                            <constraint firstItem="rOR-ud-Bdj" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="2Sz-ei-C5o"/>
                             <constraint firstItem="rOR-ud-Bdj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="55e-pQ-uut"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Du6-Oj-T4Z" secondAttribute="trailing" constant="154" id="FH0-Ll-ayt"/>
                             <constraint firstItem="rOR-ud-Bdj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="T8t-8l-ZAF"/>
-                            <constraint firstItem="Du6-Oj-T4Z" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="pbH-Qw-a8f"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -50,7 +42,6 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="homePageControll" destination="Du6-Oj-T4Z" id="kga-BW-Zu0"/>
                         <outlet property="scrollView" destination="rOR-ud-Bdj" id="sBG-wt-0E0"/>
                     </connections>
                 </viewController>

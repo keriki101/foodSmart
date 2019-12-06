@@ -14,15 +14,12 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
     let transition = SlideInTransition()
     var topView: UIView?
     var menu = MenuViewController()
-    @IBOutlet weak var homePageControll: UIPageControl!
     @IBOutlet weak var scrollView: UIScrollView!
     
     let imagesArray = ["foodBlur", "pizza", "iceCream"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        homePageControll.numberOfPages = imagesArray.count
         
         // Loop through the image array and set the name and scale
         for i in 0..<imagesArray.count {
@@ -34,12 +31,6 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
             scrollView.contentSize.width = view.frame.size.width*CGFloat(i+1)
             scrollView.addSubview(imageView)
         }
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-       
-        let page = scrollView.contentOffset.x/scrollView.frame.width
-        homePageControll.currentPage = Int(page)
     }
     
     
