@@ -71,15 +71,12 @@ extension RecipeViewController {
         
         //get the specific recipe
         let recipeAtRow = RecipeHandler.instance.allRecipeResults[indexPath.row]
-        //get access to image in recipTableView
-        let cell = tableView.cellForRow(at: indexPath) as! RecipeTableViewCell
-        
+       
         //creates an action
         let favorite = UIContextualAction(style: .normal, title: "Favorite") { (action, view, nil) in
             if recipeAtRow.isFavorite == false {
                 RecipeHandler.instance.allRecipeResults[indexPath.row].isFavorite.toggle()
                 self.showAlert(message: "Added to favorites")
-                cell.favoriteImage.isHidden = false
                 self.recipeTable.reloadData()
             }
         }
@@ -94,15 +91,12 @@ extension RecipeViewController {
     override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
               //get the specific recipe
           let recipeAtRow = RecipeHandler.instance.allRecipeResults[indexPath.row]
-          //get access to image in recipTableView
-          let cell = tableView.cellForRow(at: indexPath) as! RecipeTableViewCell
           
           //creates an action
           let unFavorite = UIContextualAction(style: .normal, title: "Remove favorite") { (action, view, nil) in
               if recipeAtRow.isFavorite == true {
                   RecipeHandler.instance.allRecipeResults[indexPath.row].isFavorite.toggle()
                   self.showAlert(message: "Removed from favorites")
-                  cell.favoriteImage.isHidden = true
                   self.recipeTable.reloadData()
               }
           }

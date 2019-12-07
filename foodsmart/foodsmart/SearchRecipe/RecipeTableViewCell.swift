@@ -22,11 +22,16 @@ class RecipeTableViewCell: UITableViewCell {
     
     @IBOutlet weak var button: UIButton!
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        self.favoriteImage.isHidden = true
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
         prepareForReuse()
-        favoriteImage.isHidden = true
     
 
     }
