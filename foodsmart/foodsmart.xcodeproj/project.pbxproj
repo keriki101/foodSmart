@@ -29,6 +29,7 @@
 		4BEACBD12386B80B00BD9FE6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BEACBCF2386B80B00BD9FE6 /* Main.storyboard */; };
 		4BEACBD32386B80B00BD9FE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BEACBD22386B80B00BD9FE6 /* Assets.xcassets */; };
 		4BEACBD62386B80B00BD9FE6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BEACBD42386B80B00BD9FE6 /* LaunchScreen.storyboard */; };
+		D21841AB239AAC1200AB97CE /* storeEverything.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21841AA239AAC1200AB97CE /* storeEverything.swift */; };
 		E750FCC92386C59F00A9DCDC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E750FCC82386C59F00A9DCDC /* HomeViewController.swift */; };
 		E750FCCC2386CA5400A9DCDC /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E750FCCB2386CA5400A9DCDC /* MenuViewController.swift */; };
 		E7998C25238C0AC300617C4A /* ShoppingCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7998C24238C0AC300617C4A /* ShoppingCartViewController.swift */; };
@@ -63,6 +64,7 @@
 		4BEACBD22386B80B00BD9FE6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4BEACBD52386B80B00BD9FE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4BEACBD72386B80B00BD9FE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D21841AA239AAC1200AB97CE /* storeEverything.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = storeEverything.swift; sourceTree = "<group>"; };
 		E750FCC82386C59F00A9DCDC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		E750FCCB2386CA5400A9DCDC /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		E7998C24238C0AC300617C4A /* ShoppingCartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				4B5B0338239007920011917C /* APIReqSearchRecipe.swift */,
 				4B6877842395485C00203BA9 /* BodyReturn.swift */,
 				4B6386882397E2AC00C31EDF /* RecipeHandler.swift */,
+				D21841AA239AAC1200AB97CE /* storeEverything.swift */,
 			);
 			path = SearchRecipe;
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 			files = (
 				4B5B0339239007920011917C /* APIReqSearchRecipe.swift in Sources */,
 				4B6877852395485C00203BA9 /* BodyReturn.swift in Sources */,
+				D21841AB239AAC1200AB97CE /* storeEverything.swift in Sources */,
 				06F2B86A239864C700B59613 /* FridgeResultsTableViewCell.swift in Sources */,
 				4B63869D2398905400C31EDF /* StorageHandler.swift in Sources */,
 				4BEACBCA2386B80B00BD9FE6 /* AppDelegate.swift in Sources */,
@@ -409,14 +413,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = K7DRTK9795;
+				DEVELOPMENT_TEAM = XW4W84FPLJ;
 				INFOPLIST_FILE = foodsmart/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = foodSmart;
+				PRODUCT_BUNDLE_IDENTIFIER = "Dennis-Karlsson";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -427,16 +431,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = K7DRTK9795;
+				DEVELOPMENT_TEAM = XW4W84FPLJ;
 				INFOPLIST_FILE = foodsmart/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = jonatan7;
+				PRODUCT_BUNDLE_IDENTIFIER = "Dennis-Karlsson";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

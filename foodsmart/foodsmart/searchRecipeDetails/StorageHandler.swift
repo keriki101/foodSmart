@@ -12,14 +12,23 @@ import Foundation
 class StorageHandler {
     
     var urlArray: [String] = []
-
+    var idArray: [Int] = []
+    
     static let instance = StorageHandler()
+    func storeUrl(_ url: String) -> Void {
+        urlArray.append(url)
+    }
     
     func urlByIndex(_ indexPath: Int) -> String {
         return urlArray[indexPath]
     }
     
-    func storeUrl(_ url: String) -> Void {
-        urlArray.append(url)
+    
+    func storeId(_ id: Int) -> Void{
+        idArray.append(id)
     }
+    func idByIndex(_ indexPath: Int) -> Int{
+        return idArray[indexPath]
+    }
+    
 }

@@ -58,12 +58,12 @@ class RecipeViewController: UITableViewController {
      }*/
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-           searching = false
-           searchBar.text = ""
-           RecipeHandler.instance.allRecipeResults.removeAll()
-           StorageHandler.instance.urlArray.removeAll()
-           tableView.reloadData()
-       }
+        searching = false
+        searchBar.text = ""
+        RecipeHandler.instance.allRecipeResults.removeAll()
+        StorageHandler.instance.urlArray.removeAll()
+        tableView.reloadData()
+    }
     
 }
 
@@ -110,54 +110,23 @@ extension RecipeViewController: UISearchBarDelegate{
         if searchBar.text == "" {
             return
         }
-       
-       //let word = searchBar.text?.replacingOccurrences(of: " ", with: "")
+        let delayQueue = DispatchQueue(label: "delayQue", qos: .userInitiated)
+        //let word = searchBar.text?.replacingOccurrences(of: " ", with: "")
         
         searching = true
         guard let searchBarText = searchBar.text else {return}
-        let request = APIRequest.instance
-        request.query = searchBarText
-        request.getReturn { result in
-            switch result {
-            case .success(let resultYeah):
-                //fetch the result from json and put in in recipe and append to allreciperesults
-                for index in 0..<resultYeah.results.count {
-                    let id = resultYeah.results[index].id
-                    let title = resultYeah.results[index].title
-                    let image = resultYeah.results[index].image
-                    let ready = resultYeah.results[index].readyInMinutes
-                    let recipes = Recipe(id: id, image: image, title: title, readyInMinutes: ready)
-                    RecipeHandler.instance.allRecipeResults.append(recipes)
-                    
-                    
-                    
-                    let storageURL = APIRequestDetail.instance
-                    storageURL.query = id
-                    storageURL.getReturn { result in
-                        switch result{
-                        case .success(let urlDetail):
-                            self.urlString = urlDetail.sourceUrl
-                            print(self.urlString)
-
-                            StorageHandler.instance.storeUrl(self.urlString)
-                        case .failure(let error):
-                            print(error)
-                        }
-                    }
-                }
-                
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-                
-            case .failure(let error):
-                print(error)
-            }
+        StoreEverything.instance.storeUrlAndId(searchBarText)
+        
+        delayQueue.asyncAfter(deadline: .now() + 3.0) {
+            StoreEverything.instance.storeLittle()
+            
+        }
+        print(StorageHandler.instance.urlArray, "url nr 5")
+        DispatchQueue.main.async {
+        
+            self.tableView.reloadData()
         }
     }
-    
-    
-   
 }
 
 
