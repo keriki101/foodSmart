@@ -15,6 +15,7 @@ class StorageHandler {
     var idArray: [Int] = []
     
     static let instance = StorageHandler()
+    
     func storeUrl(_ url: String) -> Void {
         urlArray.append(url)
     }

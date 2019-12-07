@@ -9,11 +9,11 @@
 import Foundation
 
 class Recipe: Codable {
-    let id: Int
-    let image: String
-    let title: String
-    let readyInMinutes: Int
-    let sourceUrl: String
+    var id: Int
+    var image: String
+    var title: String
+    var readyInMinutes: Int
+    var sourceUrl: String
 
     init(id: Int, image: String = "Default", title: String = "Title", readyInMinutes: Int, sourceUrl: String = "") {
         self.id = id

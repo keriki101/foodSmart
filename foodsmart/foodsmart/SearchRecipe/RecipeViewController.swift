@@ -77,7 +77,8 @@ extension RecipeViewController {
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        UIApplication.shared.open(URL(string: "\(StorageHandler.instance.urlByIndex(indexPath.row))")! as URL, options: [:], completionHandler: nil)
+        print("it iss : \(RecipeHandler.instance.allRecipeResults[indexPath.row].sourceUrl)")
+        UIApplication.shared.open(URL(string: RecipeHandler.instance.allRecipeResults[indexPath.row].sourceUrl)!)
         print(indexPath.row)
         print(StorageHandler.instance.urlByIndex(indexPath.row))
     }
@@ -124,7 +125,7 @@ extension RecipeViewController: UISearchBarDelegate{
                     if let error = error {
                         print("Heckin wrong in nested Async funcs. this is Hell")
                     } else {
-                        print(StorageHandler.instance.urlArray, "url nr 5")
+                       
                         DispatchQueue.main.async {
                         
                             self.tableView.reloadData()
@@ -133,9 +134,6 @@ extension RecipeViewController: UISearchBarDelegate{
                 }
             }
         }
-            
-    
-        
     }
 }
 
