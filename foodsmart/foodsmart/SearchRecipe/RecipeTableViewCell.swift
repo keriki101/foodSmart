@@ -20,7 +20,7 @@ class RecipeTableViewCell: UITableViewCell {
     
     @IBOutlet weak var recipeTime: UILabel!
     
-    @IBOutlet weak var button: UIButton!
+  
     
     override func prepareForReuse() {
         super.prepareForReuse()

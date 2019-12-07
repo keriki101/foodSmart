@@ -385,18 +385,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Rai-nd-974">
-                                <rect key="frame" x="0.0" y="137" width="375" height="530"/>
+                                <rect key="frame" x="0.0" y="181" width="414" height="715"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="fridgeCell" rowHeight="73" id="5ny-sv-uQt" customClass="FridgeCell" customModule="foodsmart" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="73"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="73"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5ny-sv-uQt" id="jZH-8L-0Ce">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="73"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="73"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ken-dd-KZ8">
-                                                    <rect key="frame" x="24" y="18" width="327" height="36"/>
+                                                    <rect key="frame" x="29" y="18" width="356" height="36"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -420,7 +420,7 @@
                                 </connections>
                             </tableView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter ingredient......." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AIh-aA-EHQ">
-                                <rect key="frame" x="85.5" y="50" width="204" height="34"/>
+                                <rect key="frame" x="85.333333333333329" y="94" width="243.33333333333337" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="Blu-1t-AFo"/>
                                 </constraints>
@@ -428,7 +428,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kac-aK-y5Y">
-                                <rect key="frame" x="297.5" y="46" width="43" height="36"/>
+                                <rect key="frame" x="336.66666666666669" y="90" width="43" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="43" id="48G-i4-jgn"/>
                                 </constraints>
@@ -439,10 +439,10 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fridgeIcon" translatesAutoresizingMaskIntoConstraints="NO" id="D4s-G7-uM1">
-                                <rect key="frame" x="27" y="50" width="50" height="34"/>
+                                <rect key="frame" x="31" y="94" width="46" height="34"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y0A-k2-voK">
-                                <rect key="frame" x="153" y="0.0" width="68" height="36"/>
+                                <rect key="frame" x="153" y="44" width="107" height="36"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <state key="normal" title="Reload"/>
                                 <connections>
@@ -450,7 +450,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G3v-sL-ab3">
-                                <rect key="frame" x="67" y="0.0" width="66" height="36"/>
+                                <rect key="frame" x="67" y="44" width="66" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="66" id="Aj3-R8-LWj"/>
                                 </constraints>
@@ -461,7 +461,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S0K-Vv-Tj6">
-                                <rect key="frame" x="246" y="0.0" width="95" height="36"/>
+                                <rect key="frame" x="285" y="44" width="95" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="95" id="hJO-fg-3Qn"/>
                                 </constraints>
@@ -474,13 +474,13 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s8T-RS-AsO">
-                                <rect key="frame" x="86" y="99" width="204" height="30"/>
+                                <rect key="frame" x="86" y="143" width="243" height="30"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <state key="normal" title="Search recipe" image="magnifyingglass" catalog="system"/>
                                 <connections>
                                     <action selector="searchRecipeTapped:" destination="SIY-3y-RTe" eventType="touchUpInside" id="kvi-SW-Bj2"/>
-                                    <segue destination="FDu-dw-WnN" kind="show" identifier="seg" id="6sb-v3-DVG"/>
+                                    <segue destination="FDu-dw-WnN" kind="show" id="xhm-0Z-29Z"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -610,7 +610,7 @@
                                     <bool key="isElement" value="NO"/>
                                 </accessibility>
                                 <connections>
-                                    <outlet property="favoriteImage" destination="7Lq-3Z-mRh" id="8Ba-EP-zcr"/>
+                                    <outlet property="favoriteImage" destination="7Lq-3Z-mRh" id="fKj-RX-0QQ"/>
                                     <outlet property="recipeImage" destination="uEl-wR-Yow" id="QdE-rX-o0o"/>
                                     <outlet property="recipeTime" destination="Lbv-IS-lEu" id="8RT-zn-eJ5"/>
                                     <outlet property="recipeTitle" destination="aei-DO-Pzb" id="ZuC-lP-1Tc"/>

@@ -16,7 +16,7 @@ class FridgeViewController: UIViewController {
     @IBOutlet weak var addIngredientTextField: UITextField!
     @IBOutlet weak var deleteButton: UIButton!
     
-    var ingredientsInFridge: [String] = ["curry"]
+    var ingredientsInFridge: [String] = []
     var searchRecipeByIngredient: String = ""
 
     override func viewDidLoad() {
@@ -98,81 +98,16 @@ class FridgeViewController: UIViewController {
     }
     
     @IBAction func searchRecipeTapped(_ sender: Any) {
-        searchRecipeByIngredient = ""
+        searchRecipeByIngredient.removeAll()
         for index in 0..<ingredientsInFridge.count {
-            if(index==0){
-            searchRecipeByIngredient += "\(ingredientsInFridge[index])"
-            }else{
-                searchRecipeByIngredient += "%252C\(ingredientsInFridge[index])"
+            if index == 0 {
+                searchRecipeByIngredient = "\(ingredientsInFridge[index])"
+                print(ingredientsInFridge[index],"inside searchRecipeTapped 1")
+            } else {
+                searchRecipeByIngredient += "%2C\(ingredientsInFridge[index])"
+                print(searchRecipeByIngredient,"inside searchRecipeTapped 2")
             }
-            
         }
-        performSegue(withIdentifier: "seg", sender: self)
-            
-        
-        
-        
-        
-        //print(searchRecipeByIngredient)
-        
-        
-//        let request = APIRequestIngredients.instance
-//        request.ingredients = searchRecipeByIngredient
-//
-//        request.getReturn1{ res in
-//            switch res{
-//            case .success(let result):
-//                RecipeHandlerIngredients.instance.allRecipeResults = result
-//                print(RecipeHandlerIngredients.instance.allRecipeResults)
-//                /*let req = RecipeHandlerIngredients.instance
-//                print(req.allRecipeResults)
-//                */
-//                /*result.forEach({ (results) in
-//                    print(results.id)
-//                    print("hej")
-//                })*/
-//            case .failure(let error):
-//                print("Failed to fetch recipes:", error)
-//            }
-//
-//
-//
-//        }
-        
-        /*request.getReturn1 { (result, Error) in
-            /*if let error = error{
-                print("Failed to fetch recipes:", error)
-                return
-            }*/
-            result?.forEach({ (results) in
-                print(results.title)
-                
-            })
-        }*/
-        /*request.getReturn1 { result in
-            switch result {
-                case .success(let resultYeah):
-                    print(resultYeah.results)
-                    for index in 0..<resultYeah.results.count {
-                            let id = resultYeah.results[index].id
-                            let title = resultYeah.results[index].title
-                            let image = resultYeah.results[index].image
-                            let ingredient = resultYeah.results[index].usedIngredientCount
-                            let recipes = RecipeIngredients(id: id, image: image, title: title, usedIngredientCount: ingredient)
-                            
-                        RecipeHandlerIngredients.instance.allRecipeResults.append(recipes)
-                        }
-                    /*DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                    }*/
-                
-                
-                case .failure(let error):
-                    print(error)
-            }
-        }*/
-        
-        
     }
     
     @IBAction func editButtontapped(_ sender: UIButton) {
@@ -198,8 +133,8 @@ class FridgeViewController: UIViewController {
                 selection.sort() { $1.compare($0) == .orderedAscending }
                          
                 for indexPath in selection {
-                ingredientsInFridge.remove(at: indexPath.row)
-                UserDefaults.standard.set(ingredientsInFridge, forKey: "saveIngredientInFridge")
+                    ingredientsInFridge.remove(at: indexPath.row)
+                    UserDefaults.standard.set(ingredientsInFridge, forKey: "saveIngredientInFridge")
 
                 }
                 fridgeTableView.deleteRows(at: selection, with: .automatic)
@@ -245,12 +180,14 @@ class FridgeViewController: UIViewController {
         func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
             updateDeleteButtonStatus()
         }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.destination is FridgeResultsViewController{
-            let vc = segue.destination as? FridgeResultsViewController
-            vc?.searchRecipeByIngredient = self.searchRecipeByIngredient
+    
+    
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if segue.destination is FridgeResultsViewController {
+                let vc = segue.destination as? FridgeResultsViewController
+                vc?.searchRecipeByIngredient = self.searchRecipeByIngredient
+            }
         }
-    }
     
 }
 
