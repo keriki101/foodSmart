@@ -31,32 +31,6 @@ class RecipeViewController: UITableViewController {
     }
     
     
-    
-    /*@IBAction func GetURL(_ sender: UIButton) {
-     var superview = sender.superview
-     while let view = superview, !(view is UITableViewCell) {
-     superview = view.superview
-     }
-     guard let cell = superview as? UITableViewCell else {
-     
-     print("button is not contained in a table view cell")
-     return
-     }
-     guard let indexPath = tableView.indexPath(for: cell) else {
-     print("failed to get index path for cell containing button")
-     return
-     }
-     // We've got the index path for the cell that contains the button, now do something with it.
-     print("button is in row \(indexPath.row)")
-     
-     
-     UIApplication.shared.open(URL(string: "\(urlString)")! as URL, options: [:], completionHandler: nil)
-     print(urlString)
-     
-     
-     
-     }*/
-    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
            searching = false
            searchBar.text = ""
@@ -64,6 +38,16 @@ class RecipeViewController: UITableViewController {
            StorageHandler.instance.urlArray.removeAll()
            tableView.reloadData()
        }
+    
+    //Show popup message
+    func showAlert(message: String) {
+        let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
+        self.present(alert, animated: true, completion: nil)
+        Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false) { _ in
+            alert.dismiss(animated: true, completion: nil)
+        }
+        
+    }
     
 }
 
@@ -82,12 +66,63 @@ extension RecipeViewController {
         print(StorageHandler.instance.urlByIndex(indexPath.row))
     }
     
+    //swipe to left to add favorite
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        //get the specific recipe
+        let recipeAtRow = RecipeHandler.instance.allRecipeResults[indexPath.row]
+        //get access to image in recipTableView
+        let cell = tableView.cellForRow(at: indexPath) as! RecipeTableViewCell
+        
+        //creates an action
+        let favorite = UIContextualAction(style: .normal, title: "Favorite") { (action, view, nil) in
+            if recipeAtRow.isFavorite == false {
+                RecipeHandler.instance.allRecipeResults[indexPath.row].isFavorite.toggle()
+                self.showAlert(message: "Added to favorites")
+                cell.favoriteImage.isHidden = false
+                self.recipeTable.reloadData()
+            }
+        }
+        favorite.backgroundColor = .red
+        //add actions
+        let config = UISwipeActionsConfiguration(actions: [favorite])
+        
+        return config
+    }
+    
+    //swipe right to remove from favorites
+    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+              //get the specific recipe
+          let recipeAtRow = RecipeHandler.instance.allRecipeResults[indexPath.row]
+          //get access to image in recipTableView
+          let cell = tableView.cellForRow(at: indexPath) as! RecipeTableViewCell
+          
+          //creates an action
+          let unFavorite = UIContextualAction(style: .normal, title: "Remove favorite") { (action, view, nil) in
+              if recipeAtRow.isFavorite == true {
+                  RecipeHandler.instance.allRecipeResults[indexPath.row].isFavorite.toggle()
+                  self.showAlert(message: "Removed from favorites")
+                  cell.favoriteImage.isHidden = true
+                  self.recipeTable.reloadData()
+              }
+          }
+          unFavorite.backgroundColor = .lightGray
+          //add actions
+          let config = UISwipeActionsConfiguration(actions: [unFavorite])
+          
+          return config
+    }
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeCell") as? RecipeTableViewCell{
             if searching{
                 let recipeItem = RecipeHandler.instance.allRecipeResults[indexPath.row]
+                //if favorite show image
+                if recipeItem.isFavorite == true {
+                    cell.favoriteImage.isHidden = false
+                }
                 if let url = URL(string: "https://spoonacular.com/recipeImages/\(recipeItem.id)-90x90.jpg"){
                     if let data = try? Data(contentsOf: url){
                         cell.recipeImage.image = UIImage(data: data)
@@ -110,9 +145,7 @@ extension RecipeViewController: UISearchBarDelegate{
         if searchBar.text == "" {
             return
         }
-       
-       //let word = searchBar.text?.replacingOccurrences(of: " ", with: "")
-        
+               
         searching = true
         guard let searchBarText = searchBar.text else {return}
         let request = APIRequest.instance

@@ -13,14 +13,14 @@ class Recipe: Codable {
     let image: String
     let title: String
     let readyInMinutes: Int
-    let sourceUrl: String
+    var isFavorite: Bool
 
-    init(id: Int, image: String = "Default", title: String = "Title", readyInMinutes: Int, sourceUrl: String = "") {
+    init(id: Int, image: String = "Default", title: String = "Title", readyInMinutes: Int, isFavorite: Bool = false ) {
         self.id = id
         self.image = image
         self.title = title
         self.readyInMinutes = readyInMinutes
-        self.sourceUrl = sourceUrl
+        self.isFavorite = isFavorite
     }
 }
 
