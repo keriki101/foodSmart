@@ -115,17 +115,27 @@ extension RecipeViewController: UISearchBarDelegate{
         
         searching = true
         guard let searchBarText = searchBar.text else {return}
-        StoreEverything.instance.storeUrlAndId(searchBarText)
         
-        delayQueue.asyncAfter(deadline: .now() + 3.0) {
-            StoreEverything.instance.storeLittle()
+        StoreEverything.instance.storeUrlAndId(searchBarText){error in
+            if let error = error{
+                print("Something went fuckin wrong")
+            } else {
+                StoreEverything.instance.storeLittle(){error in
+                    if let error = error {
+                        print("Heckin wrong in nested Async funcs. this is Hell")
+                    } else {
+                        print(StorageHandler.instance.urlArray, "url nr 5")
+                        DispatchQueue.main.async {
+                        
+                            self.tableView.reloadData()
+                        }
+                    }
+                }
+            }
+        }
             
-        }
-        print(StorageHandler.instance.urlArray, "url nr 5")
-        DispatchQueue.main.async {
+    
         
-            self.tableView.reloadData()
-        }
     }
 }
 
