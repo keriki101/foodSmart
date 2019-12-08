@@ -32,12 +32,12 @@ class RecipeViewController: UITableViewController {
     
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-           searching = false
-           searchBar.text = ""
-           RecipeHandler.instance.allRecipeResults.removeAll()
-           StorageHandler.instance.urlArray.removeAll()
-           tableView.reloadData()
-       }
+        searching = false
+        RecipeHandler.instance.allRecipeResults.removeAll()
+        IdHandler.instance.idArray.removeAll()
+        searchBar.text = ""
+        tableView.reloadData()
+    }
     
     //Show popup message
     func showAlert(message: String) {
@@ -61,9 +61,7 @@ extension RecipeViewController {
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        UIApplication.shared.open(URL(string: "\(StorageHandler.instance.urlByIndex(indexPath.row))")! as URL, options: [:], completionHandler: nil)
-        print(indexPath.row)
-        print(StorageHandler.instance.urlByIndex(indexPath.row))
+        UIApplication.shared.open(URL(string: RecipeHandler.instance.allRecipeResults[indexPath.row].sourceUrl)!)
     }
     
     //swipe to left to add favorite
@@ -132,9 +130,11 @@ extension RecipeViewController {
     }
 }
 
-//MARK: - SearchBarSearchButtinClicked
+//MARK: - SearchBarSearchButtonClicked
 extension RecipeViewController: UISearchBarDelegate{
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        RecipeHandler.instance.allRecipeResults.removeAll()
+        IdHandler.instance.idArray.removeAll()
         //if search text empty dont show anything
         if searchBar.text == "" {
             return
@@ -142,49 +142,25 @@ extension RecipeViewController: UISearchBarDelegate{
                
         searching = true
         guard let searchBarText = searchBar.text else {return}
-        let request = APIRequest.instance
-        request.query = searchBarText
-        request.getReturn { result in
-            switch result {
-            case .success(let resultYeah):
-                //fetch the result from json and put in in recipe and append to allreciperesults
-                for index in 0..<resultYeah.results.count {
-                    let id = resultYeah.results[index].id
-                    let title = resultYeah.results[index].title
-                    let image = resultYeah.results[index].image
-                    let ready = resultYeah.results[index].readyInMinutes
-                    let recipes = Recipe(id: id, image: image, title: title, readyInMinutes: ready)
-                    RecipeHandler.instance.allRecipeResults.append(recipes)
-                    
-                    
-                    
-                    let storageURL = APIRequestDetail.instance
-                    storageURL.query = id
-                    storageURL.getReturn { result in
-                        switch result{
-                        case .success(let urlDetail):
-                            self.urlString = urlDetail.sourceUrl
-                            print(self.urlString)
-
-                            StorageHandler.instance.storeUrl(self.urlString)
-                        case .failure(let error):
-                            print(error)
+        
+        StoreEverything.instance.storeUrlAndId(searchBarText){error in
+            if let error = error{
+                print("Something went fuckin wrong")
+            } else {
+                StoreEverything.instance.storeLittle(){error in
+                    if let error = error {
+                        print("Heckin wrong in nested Async funcs. this is Hell")
+                    } else {
+                        
+                        DispatchQueue.main.async {
+                            
+                            self.tableView.reloadData()
                         }
                     }
                 }
-                
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-                
-            case .failure(let error):
-                print(error)
             }
         }
     }
-    
-    
-   
 }
 
 

@@ -13,3 +13,4 @@ class RecipeHandler {
     
     var allRecipeResults: [Recipe] = []
 }
+
