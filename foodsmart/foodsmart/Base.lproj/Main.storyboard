@@ -480,7 +480,6 @@
                                 <state key="normal" title="Search recipe" image="magnifyingglass" catalog="system"/>
                                 <connections>
                                     <action selector="searchRecipeTapped:" destination="SIY-3y-RTe" eventType="touchUpInside" id="kvi-SW-Bj2"/>
-                                    <segue destination="FDu-dw-WnN" kind="show" id="xhm-0Z-29Z"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -652,9 +651,9 @@
         <!--Fridge Results View Controller-->
         <scene sceneID="Gbx-jx-Es3">
             <objects>
-                <tableViewController storyboardIdentifier="vc" id="FDu-dw-WnN" customClass="FridgeResultsViewController" customModule="foodsmart" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="fridgeResultVC" id="FDu-dw-WnN" customClass="FridgeResultsViewController" customModule="foodsmart" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="aVO-1j-Pgq">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>

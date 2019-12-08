@@ -18,7 +18,8 @@ class FridgeViewController: UIViewController {
     
     var ingredientsInFridge: [String] = []
     var searchRecipeByIngredient: String = ""
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -84,6 +85,7 @@ class FridgeViewController: UIViewController {
                 setButtonTitle(title: rootButtonTitle, enabled: false)
             }
         }
+        
     }
 
     
@@ -108,7 +110,13 @@ class FridgeViewController: UIViewController {
                 print(searchRecipeByIngredient,"inside searchRecipeTapped 2")
             }
         }
+        let fridgeresultVC : FridgeResultsViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "fridgeResultVC") as! FridgeResultsViewController
+        //displayVC.name = "John Cena"
+        fridgeresultVC.searchRecipeByIngredient = self.searchRecipeByIngredient
+        
+        self.present(fridgeresultVC, animated: true, completion: nil)
     }
+    
     
     @IBAction func editButtontapped(_ sender: UIButton) {
         
@@ -182,12 +190,12 @@ class FridgeViewController: UIViewController {
         }
     
     
-        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             if segue.destination is FridgeResultsViewController {
                 let vc = segue.destination as? FridgeResultsViewController
                 vc?.searchRecipeByIngredient = self.searchRecipeByIngredient
             }
-        }
+        }*/
     
 }
 
