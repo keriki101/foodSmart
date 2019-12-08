@@ -12,8 +12,5 @@ class SearchRecipeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-    
-    
     }
 }

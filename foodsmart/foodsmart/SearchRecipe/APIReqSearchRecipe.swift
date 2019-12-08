@@ -16,22 +16,21 @@ class APIRequest {
     var testString: String = ""
 
     func getReturn(completed: @escaping (Result<Response, Error>) -> Void) {
-        // TODO MAJOR!
-        // Expressions are not allowed at top level will occur otherwise
-        //
-
+       //MARK: - Get Header Information
         let headers = [
             "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
             "x-rapidapi-key": "e44daac5e0mshc682df24497a89fp1c4513jsn7067934f0b9b"
         ]
         //remove whitespace between words
         let word = query.replacingOccurrences(of: " ", with: "_")
-
+        
         var request = URLRequest(url: URL(string: "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?number=10&query=\(word)")!,
                                  cachePolicy: .useProtocolCachePolicy,
                                  timeoutInterval: 10.0)
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = headers
+
+        //MARK: - Get Recipe Information
 
         let session = URLSession.shared
         let dataTask = session.dataTask(with: request) { (data, response, error) -> Void in
@@ -46,24 +45,3 @@ class APIRequest {
         dataTask.resume()
     }
 }
-    //MARK: - Get Recipe Information
-
-
-
-    
-//let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
-//    if (error != nil) {
-//        print(error)
-//    } else {
-//        if let data = data, let dataString = String(data: data, encoding: .utf8) {
-//            myStruct.title = dataString
-//            do{
-//                let decoder: [BodyReturn] = try JSONDecoder().decode([BodyReturn].self, from: data)
-//                completed(decoder)
-//            }
-//            catch{
-//                completed([])
-//            }
-//        }
-//    }
-//})

@@ -21,37 +21,21 @@ class FridgeResultsViewController: UITableViewController {
         
         fridgeView.delegate = self
         fridgeView.dataSource = self
-        
         fetchJSON()
-        
-
-        
     }
     
     func fetchJSON() {
-        
-        let semaphore = DispatchSemaphore(value: 0)
-        
         let request = APIRequestIngredients.instance
         request.ingredients = searchRecipeByIngredient
-        print(request.ingredients, "request.ingredients")
-               
         request.getReturn1 { res in
             switch res{
             case .success(let result):
                 RecipeHandlerIngredients.instance.allRecipeResults = result
-                print(RecipeHandlerIngredients.instance.allRecipeResults,"fridgeResultViewController")
-                semaphore.signal()
             case .failure(let error):
-                semaphore.signal()
                 print("Failed to fetch recipes:", error)
             }
-
         }
-        _ = semaphore.wait(wallTimeout: .distantFuture)
-        
     }
-
 }
 
 extension FridgeResultsViewController {
@@ -71,10 +55,8 @@ extension FridgeResultsViewController {
                  }
             cell.RecipeIngCount.text = "\(recipe.usedIngredientCount)"
             return cell
-
         }
         return UITableViewCell()
-     
     }
 }
     

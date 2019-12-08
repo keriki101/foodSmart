@@ -21,15 +21,11 @@ class RecipeViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         recipeTable.delegate = self
         recipeTable.dataSource = self
-        
         tableView.keyboardDismissMode = .onDrag
-        
         recipeTable.reloadData()       
     }
-    
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searching = false
@@ -46,19 +42,15 @@ class RecipeViewController: UITableViewController {
         Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false) { _ in
             alert.dismiss(animated: true, completion: nil)
         }
-        
     }
-    
 }
 
 //MARK: - Add cell
 extension RecipeViewController {
-    
-    
+        
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return RecipeHandler.instance.allRecipeResults.count
     }
-    
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         UIApplication.shared.open(URL(string: RecipeHandler.instance.allRecipeResults[indexPath.row].sourceUrl)!)
@@ -69,7 +61,6 @@ extension RecipeViewController {
         
         //get the specific recipe
         let recipeAtRow = RecipeHandler.instance.allRecipeResults[indexPath.row]
-       
         //creates an action
         let favorite = UIContextualAction(style: .normal, title: "Favorite") { (action, view, nil) in
             if recipeAtRow.isFavorite == false {
@@ -78,33 +69,31 @@ extension RecipeViewController {
                 self.recipeTable.reloadData()
             }
         }
+        
         favorite.backgroundColor = .red
         //add actions
         let config = UISwipeActionsConfiguration(actions: [favorite])
-        
         return config
     }
     
     //swipe right to remove from favorites
     override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-              //get the specific recipe
-          let recipeAtRow = RecipeHandler.instance.allRecipeResults[indexPath.row]
-          
-          //creates an action
-          let unFavorite = UIContextualAction(style: .normal, title: "Remove favorite") { (action, view, nil) in
-              if recipeAtRow.isFavorite == true {
-                  RecipeHandler.instance.allRecipeResults[indexPath.row].isFavorite.toggle()
-                  self.showAlert(message: "Removed from favorites")
-                  self.recipeTable.reloadData()
-              }
-          }
-          unFavorite.backgroundColor = .lightGray
-          //add actions
-          let config = UISwipeActionsConfiguration(actions: [unFavorite])
-          
-          return config
+        //get the specific recipe
+        let recipeAtRow = RecipeHandler.instance.allRecipeResults[indexPath.row]
+        //creates an action
+        let unFavorite = UIContextualAction(style: .normal, title: "Remove favorite") { (action, view, nil) in
+            if recipeAtRow.isFavorite == true {
+                RecipeHandler.instance.allRecipeResults[indexPath.row].isFavorite.toggle()
+                self.showAlert(message: "Removed from favorites")
+                self.recipeTable.reloadData()
+            }
+        }
+        unFavorite.backgroundColor = .lightGray
+        //add actions
+        let config = UISwipeActionsConfiguration(actions: [unFavorite])
+        
+        return config
     }
-    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -123,7 +112,6 @@ extension RecipeViewController {
                 cell.recipeTitle.text = recipeItem.title
                 cell.recipeTime.text = "\(recipeItem.readyInMinutes)"
             }
-            
             return cell
         }
         return UITableViewCell()
@@ -139,17 +127,16 @@ extension RecipeViewController: UISearchBarDelegate{
         if searchBar.text == "" {
             return
         }
-               
         searching = true
         guard let searchBarText = searchBar.text else {return}
         
         StoreEverything.instance.storeUrlAndId(searchBarText){error in
-            if let error = error{
-                print("Something went fuckin wrong")
+            if error != nil{
+                print("Something went wrong, should never happen")
             } else {
                 StoreEverything.instance.storeLittle(){error in
-                    if let error = error {
-                        print("Heckin wrong in nested Async funcs. this is Hell")
+                    if error != nil {
+                        print("Something went wrong, should never happen_2")
                     } else {
                         
                         DispatchQueue.main.async {
