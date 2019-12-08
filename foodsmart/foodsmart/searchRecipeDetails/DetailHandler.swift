@@ -8,8 +8,7 @@
 
 import Foundation
 
-class DetailHandler {
-    static let instance = DetailHandler()
-    
-    var DetailResults: [Detail] = []
-}
+//class DetailHandler {
+//    static let instance = DetailHandler()
+//    var DetailResults: [Detail] = []
+//}

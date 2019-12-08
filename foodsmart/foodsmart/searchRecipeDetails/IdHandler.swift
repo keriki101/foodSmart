@@ -16,7 +16,6 @@ class IdHandler {
     func storeId(_ id: Int) -> Void{
         idArray.append(id)
     }
-    
     func idByIndex(_ indexPath: Int) -> Int{
         return idArray[indexPath]
     }

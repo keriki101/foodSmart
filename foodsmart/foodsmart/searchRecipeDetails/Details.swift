@@ -9,8 +9,5 @@
 import Foundation
 
 struct Detail: Codable {
-    
     var sourceUrl: String = ""
-    
-    
 }

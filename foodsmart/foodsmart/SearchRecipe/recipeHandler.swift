@@ -10,7 +10,6 @@ import Foundation
 
 class RecipeHandler {
     static let instance = RecipeHandler()
-    
     var allRecipeResults: [Recipe] = []
 }
 

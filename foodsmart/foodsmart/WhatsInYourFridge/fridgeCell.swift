@@ -9,14 +9,9 @@
 import UIKit
 
 class FridgeCell: UITableViewCell {
-    
-    
     @IBOutlet weak var fridgeLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
-  
-
 }

@@ -9,9 +9,6 @@
 import UIKit
 
 class FridgeResultsViewController: UITableViewController {
-
-
-    //@IBOutlet var frideView: UITableView!
     @IBOutlet var fridgeView: UITableView!
     
     var searchRecipeByIngredient: String = ""
@@ -21,41 +18,29 @@ class FridgeResultsViewController: UITableViewController {
         
         fridgeView.delegate = self
         fridgeView.dataSource = self
-        
         fetchJSON()
-        
-
-        
     }
-    
+    //MARK: - API-fetching JSON-data into the Handler
     func fetchJSON() {
-        
         let semaphore = DispatchSemaphore(value: 0)
-        
         let request = APIRequestIngredients.instance
         request.ingredients = searchRecipeByIngredient
-        print(request.ingredients, "request.ingredients")
-               
-        request.getReturn1 { res in
+        request.getReturn_ingredients { res in
             switch res{
             case .success(let result):
                 RecipeHandlerIngredients.instance.allRecipeResults = result
-                print(RecipeHandlerIngredients.instance.allRecipeResults,"fridgeResultViewController")
                 semaphore.signal()
             case .failure(let error):
-                semaphore.signal()
                 print("Failed to fetch recipes:", error)
+                semaphore.signal()
             }
-
         }
         _ = semaphore.wait(wallTimeout: .distantFuture)
-        
     }
-
 }
+//MARK: - Cell creation & data output
 
 extension FridgeResultsViewController {
-   
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return RecipeHandlerIngredients.instance.allRecipeResults.count
     }
@@ -71,10 +56,8 @@ extension FridgeResultsViewController {
                  }
             cell.RecipeIngCount.text = "\(recipe.usedIngredientCount)"
             return cell
-
         }
         return UITableViewCell()
-     
     }
 }
     
