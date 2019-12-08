@@ -53,7 +53,7 @@ class FridgeViewController: UIViewController {
         view.endEditing(true)
     }
     
-    //MARK: - Delete fridge ingredients
+    //MARK: - Update delete button
     func updateDeleteButtonStatus() {
         
         func setButtonTitle(title: String, enabled: Bool) {
