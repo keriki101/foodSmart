@@ -30,9 +30,9 @@ class StoreEverything {
                     let recipes = Recipe(id: id, image: image, title: title, readyInMinutes: ready)
                     RecipeHandler.instance.allRecipeResults.append(recipes)
                     
-                    StorageHandler.instance.storeId(id)
+                    IdHandler.instance.storeId(id)
                 }
-                print(StorageHandler.instance.idArray, "id nr 1")
+                //print(StorageHandler.instance.idArray, "id nr 1")
                 
                 completion(nil)
             case .failure(let error):
@@ -48,23 +48,19 @@ class StoreEverything {
         
         
         let storageURL = APIRequestDetail.instance
-        for index in 0..<StorageHandler.instance.idArray.count {
-            storageURL.query = StorageHandler.instance.idByIndex(index)
+        for index in 0..<IdHandler.instance.idArray.count {
+            storageURL.query = IdHandler.instance.idByIndex(index)
             storageURL.getReturn { result in
                 switch result{
                 case .success(let urlDetail):
                     
-                    print("Url2")
-                    //This is wrong but keeping for now. removing later when 100% safe
-                    StorageHandler.instance.storeUrl(urlDetail.sourceUrl)
                     RecipeHandler.instance.allRecipeResults[index].sourceUrl = urlDetail.sourceUrl
-                    print("Url 3")
+                    
                     completion(nil)
                 case .failure(let error):
                     print(error)
                 }
             }
         }
-        print(StorageHandler.instance.urlArray, "4")
     }
 }

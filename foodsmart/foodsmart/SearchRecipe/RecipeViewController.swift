@@ -31,37 +31,11 @@ class RecipeViewController: UITableViewController {
     }
     
     
-    
-    /*@IBAction func GetURL(_ sender: UIButton) {
-     var superview = sender.superview
-     while let view = superview, !(view is UITableViewCell) {
-     superview = view.superview
-     }
-     guard let cell = superview as? UITableViewCell else {
-     
-     print("button is not contained in a table view cell")
-     return
-     }
-     guard let indexPath = tableView.indexPath(for: cell) else {
-     print("failed to get index path for cell containing button")
-     return
-     }
-     // We've got the index path for the cell that contains the button, now do something with it.
-     print("button is in row \(indexPath.row)")
-     
-     
-     UIApplication.shared.open(URL(string: "\(urlString)")! as URL, options: [:], completionHandler: nil)
-     print(urlString)
-     
-     
-     
-     }*/
-    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searching = false
-        searchBar.text = ""
         RecipeHandler.instance.allRecipeResults.removeAll()
-        StorageHandler.instance.urlArray.removeAll()
+        IdHandler.instance.idArray.removeAll()
+        searchBar.text = ""
         tableView.reloadData()
     }
     
@@ -77,10 +51,7 @@ extension RecipeViewController {
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("it iss : \(RecipeHandler.instance.allRecipeResults[indexPath.row].sourceUrl)")
         UIApplication.shared.open(URL(string: RecipeHandler.instance.allRecipeResults[indexPath.row].sourceUrl)!)
-        print(indexPath.row)
-        print(StorageHandler.instance.urlByIndex(indexPath.row))
     }
     
     
@@ -104,16 +75,15 @@ extension RecipeViewController {
     }
 }
 
-//MARK: - SearchBarSearchButtinClicked
+//MARK: - SearchBarSearchButtonClicked
 extension RecipeViewController: UISearchBarDelegate{
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        RecipeHandler.instance.allRecipeResults.removeAll()
+        IdHandler.instance.idArray.removeAll()
         //if search text empty dont show anything
         if searchBar.text == "" {
             return
         }
-        let delayQueue = DispatchQueue(label: "delayQue", qos: .userInitiated)
-        //let word = searchBar.text?.replacingOccurrences(of: " ", with: "")
-        
         searching = true
         guard let searchBarText = searchBar.text else {return}
         
@@ -125,9 +95,9 @@ extension RecipeViewController: UISearchBarDelegate{
                     if let error = error {
                         print("Heckin wrong in nested Async funcs. this is Hell")
                     } else {
-                       
-                        DispatchQueue.main.async {
                         
+                        DispatchQueue.main.async {
+                            
                             self.tableView.reloadData()
                         }
                     }
