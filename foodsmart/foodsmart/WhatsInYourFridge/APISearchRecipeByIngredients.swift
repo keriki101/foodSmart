@@ -25,10 +25,15 @@ class APIRequestIngredients {
             "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
             "x-rapidapi-key": "e44daac5e0mshc682df24497a89fp1c4513jsn7067934f0b9b"
         ]
+        
+        //remove spaces
+        let word = ingredients.replacingOccurrences(of: " ", with: "_")
 
-        var request = URLRequest(url: URL(string: "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=5&ranking=1&ignorePantry=false&ingredients=\(ingredients)")!,
+
+        var request = URLRequest(url: URL(string: "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=5&ranking=1&ignorePantry=false&ingredients=\(word)")!,
                                  cachePolicy: .useProtocolCachePolicy,
                                  timeoutInterval: 10.0)
+
         print(request)
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = headers
