@@ -13,14 +13,14 @@ class APIRequestIngredients {
     var ingredients: String = ""
     var url: String = ""
     var testString: String = ""
-    
+    //MARK: - Searches for ingredients through API
     func getReturn_ingredients(completed: @escaping (Result<[ResultIngredients], Error>) -> Void) {
         let headers = [
             "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
             "x-rapidapi-key": "e44daac5e0mshc682df24497a89fp1c4513jsn7067934f0b9b"
         ]
         //remove spaces
-        let word = ingredients.replacingOccurrences(of: " ", with: "_")
+        let word = ingredients.replacingOccurrences(of: " ", with: "%20")
         
         var request = URLRequest(url: URL(string: "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=5&ranking=1&ignorePantry=false&ingredients=\(word)")!,
                                  cachePolicy: .useProtocolCachePolicy,
@@ -30,8 +30,9 @@ class APIRequestIngredients {
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = headers
         let session = URLSession.shared
+        
+        //MARK: - Return the data from API to Struct
         let dataTask = session.dataTask(with: request) { (data, response, error) -> Void in
-            
             if let error = error { completed(.failure(error));  return }
             //successful
             do{

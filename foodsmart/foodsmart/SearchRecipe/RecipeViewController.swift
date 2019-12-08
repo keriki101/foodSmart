@@ -13,9 +13,7 @@ enum recipePressed {
 }
 
 class RecipeViewController: UITableViewController {
-    
     @IBOutlet var recipeTable: UITableView!
-    
     var urlString: String = ""
     var searching = false
     
@@ -27,6 +25,7 @@ class RecipeViewController: UITableViewController {
         recipeTable.reloadData()       
     }
     
+    //MARK: - Clear search bar
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searching = false
         RecipeHandler.instance.allRecipeResults.removeAll()
@@ -35,7 +34,7 @@ class RecipeViewController: UITableViewController {
         tableView.reloadData()
     }
     
-    //Show popup message
+    //MARK: - pop up message
     func showAlert(message: String) {
         let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
         self.present(alert, animated: true, completion: nil)
@@ -55,8 +54,29 @@ extension RecipeViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         UIApplication.shared.open(URL(string: RecipeHandler.instance.allRecipeResults[indexPath.row].sourceUrl)!)
     }
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeCell") as? RecipeTableViewCell{
+            if searching{
+                let recipeItem = RecipeHandler.instance.allRecipeResults[indexPath.row]
+                //if favorite show image
+                if recipeItem.isFavorite == true {
+                    cell.favoriteImage.isHidden = false
+                }
+                if let url = URL(string: "https://spoonacular.com/recipeImages/\(recipeItem.id)-90x90.jpg"){
+                    if let data = try? Data(contentsOf: url){
+                        cell.recipeImage.image = UIImage(data: data)
+                    }
+                }
+                cell.recipeTitle.text = recipeItem.title
+                cell.recipeTime.text = "\(recipeItem.readyInMinutes)"
+            }
+            return cell
+        }
+        return UITableViewCell()
+    }
     
-    //swipe to left to add favorite
+    //MARK: - Favourites
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         //get the specific recipe
@@ -94,31 +114,9 @@ extension RecipeViewController {
         
         return config
     }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeCell") as? RecipeTableViewCell{
-            if searching{
-                let recipeItem = RecipeHandler.instance.allRecipeResults[indexPath.row]
-                //if favorite show image
-                if recipeItem.isFavorite == true {
-                    cell.favoriteImage.isHidden = false
-                }
-                if let url = URL(string: "https://spoonacular.com/recipeImages/\(recipeItem.id)-90x90.jpg"){
-                    if let data = try? Data(contentsOf: url){
-                        cell.recipeImage.image = UIImage(data: data)
-                    }
-                }
-                cell.recipeTitle.text = recipeItem.title
-                cell.recipeTime.text = "\(recipeItem.readyInMinutes)"
-            }
-            return cell
-        }
-        return UITableViewCell()
-    }
 }
 
-//MARK: - SearchBarSearchButtonClicked
+//MARK: - Search Recipe
 extension RecipeViewController: UISearchBarDelegate{
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         RecipeHandler.instance.allRecipeResults.removeAll()
@@ -134,7 +132,7 @@ extension RecipeViewController: UISearchBarDelegate{
             if error != nil{
                 print("Something went wrong, should never happen")
             } else {
-                StoreEverything.instance.storeLittle(){error in
+                StoreEverything.instance.storeRecipeUrl(){error in
                     if error != nil {
                         print("Something went wrong, should never happen_2")
                     } else {

@@ -11,12 +11,12 @@ import Foundation
 
 class StoreEverything {
     static let instance = StoreEverything()
-    
+    //MARK: - Add Id to class
     func storeUrlAndId(_ searchBarText: String, completion: @escaping (Error?) -> Void) {
         let request = APIRequest.instance
         request.query = searchBarText
         
-        request.getReturn { result in
+        request.getReturn_recipe { result in
             switch result {
             case .success(let resultYeah):
                 for index in 0..<resultYeah.results.count {
@@ -31,16 +31,17 @@ class StoreEverything {
                 completion(nil)
             case .failure(let error):
                 print(error)
+            
             }
         }
     }
-    
-    func storeLittle(completion: @escaping (Error?) -> Void){
+    //MARK: - Search URL add to class-object
+    func storeRecipeUrl(completion: @escaping (Error?) -> Void){
         let storageURL = APIRequestDetail.instance
         
         for index in 0..<IdHandler.instance.idArray.count {
             storageURL.query = IdHandler.instance.idByIndex(index)
-            storageURL.getReturn { result in
+            storageURL.getReturn_URL { result in
                 switch result{
                 case .success(let urlDetail):
                     RecipeHandler.instance.allRecipeResults[index].sourceUrl = urlDetail.sourceUrl
