@@ -10,6 +10,7 @@ import UIKit
 
 class FridgeResultsViewController: UITableViewController {
     @IBOutlet var fridgeView: UITableView!
+    
     var searchRecipeByIngredient: String = ""
     
     override func viewDidLoad() {
@@ -21,16 +22,20 @@ class FridgeResultsViewController: UITableViewController {
     }
     //MARK: - API-fetching JSON-data into the Handler
     func fetchJSON() {
+        let semaphore = DispatchSemaphore(value: 0)
         let request = APIRequestIngredients.instance
         request.ingredients = searchRecipeByIngredient
         request.getReturn_ingredients { res in
             switch res{
             case .success(let result):
                 RecipeHandlerIngredients.instance.allRecipeResults = result
+                semaphore.signal()
             case .failure(let error):
                 print("Failed to fetch recipes:", error)
+                semaphore.signal()
             }
         }
+        _ = semaphore.wait(wallTimeout: .distantFuture)
     }
 }
 //MARK: - Cell creation & data output

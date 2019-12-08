@@ -93,10 +93,10 @@ class FridgeViewController: UIViewController {
         for index in 0..<ingredientsInFridge.count {
             if index == 0 {
                 searchRecipeByIngredient = "\(ingredientsInFridge[index])"
-                print(ingredientsInFridge[index],"inside searchRecipeTapped 1")
+                //print(ingredientsInFridge[index],"inside searchRecipeTapped 1")
             } else {
                 searchRecipeByIngredient += "%2C\(ingredientsInFridge[index])"
-                print(searchRecipeByIngredient,"inside searchRecipeTapped 2")
+                //print(searchRecipeByIngredient,"inside searchRecipeTapped 2")
             }
         }
         let fridgeresultVC : FridgeResultsViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "fridgeResultVC") as! FridgeResultsViewController
