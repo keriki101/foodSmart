@@ -14,7 +14,7 @@ class APIRequestIngredients {
     var url: String = ""
     var testString: String = ""
     
-    func getReturn1(completed: @escaping (Result<[ResultIngredients], Error>) -> Void) {
+    func getReturn_ingredients(completed: @escaping (Result<[ResultIngredients], Error>) -> Void) {
         let headers = [
             "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
             "x-rapidapi-key": "e44daac5e0mshc682df24497a89fp1c4513jsn7067934f0b9b"

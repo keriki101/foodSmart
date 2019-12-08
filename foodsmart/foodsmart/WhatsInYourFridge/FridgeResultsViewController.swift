@@ -9,11 +9,7 @@
 import UIKit
 
 class FridgeResultsViewController: UITableViewController {
-
-
-    //@IBOutlet var frideView: UITableView!
     @IBOutlet var fridgeView: UITableView!
-    
     var searchRecipeByIngredient: String = ""
     
     override func viewDidLoad() {
@@ -23,11 +19,11 @@ class FridgeResultsViewController: UITableViewController {
         fridgeView.dataSource = self
         fetchJSON()
     }
-    
+    //MARK: - API-fetching JSON-data into the Handler
     func fetchJSON() {
         let request = APIRequestIngredients.instance
         request.ingredients = searchRecipeByIngredient
-        request.getReturn1 { res in
+        request.getReturn_ingredients { res in
             switch res{
             case .success(let result):
                 RecipeHandlerIngredients.instance.allRecipeResults = result
@@ -37,9 +33,9 @@ class FridgeResultsViewController: UITableViewController {
         }
     }
 }
+//MARK: - Cell creation & data output
 
 extension FridgeResultsViewController {
-   
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return RecipeHandlerIngredients.instance.allRecipeResults.count
     }

@@ -26,7 +26,7 @@ class FridgeViewController: UIViewController {
         fridgeTableView.allowsMultipleSelectionDuringEditing = true
     }
     
-    //Save ingredient
+    //MARK: - Save fridge ingredient
     func saveIngredient() {
         
         let savedIngredient = UserDefaults.standard.object(forKey: "saveIngredientInFridge")
@@ -36,11 +36,11 @@ class FridgeViewController: UIViewController {
         }
     }
     
-    //Add new ingredients
+    //MARK: - Add new fridge ingredients
     func insertNewIngredientTitle() {
         ingredientsInFridge.append(addIngredientTextField.text!)
         
-        // save the new ingredient
+        //Save the new ingredient
         UserDefaults.standard.set(ingredientsInFridge, forKey: "saveIngredientInFridge")
         let indexPath = IndexPath(row: ingredientsInFridge.count - 1, section: 0)
         
@@ -53,7 +53,7 @@ class FridgeViewController: UIViewController {
         view.endEditing(true)
     }
     
-    
+    //MARK: - Delete fridge ingredients
     func updateDeleteButtonStatus() {
         
         func setButtonTitle(title: String, enabled: Bool) {
@@ -78,17 +78,16 @@ class FridgeViewController: UIViewController {
         }
     }
     
-    
+    //MARK: - Add ingredient name to list
     @IBAction func addRow(_ sender: Any) {
-        
         if addIngredientTextField.text == "" {
             return
         } else {
             insertNewIngredientTitle()
-            
         }
     }
     
+    //MARK: - Search for recipe, by fridge ingredients
     @IBAction func searchRecipeTapped(_ sender: Any) {
         searchRecipeByIngredient.removeAll()
         for index in 0..<ingredientsInFridge.count {
@@ -101,13 +100,13 @@ class FridgeViewController: UIViewController {
             }
         }
         let fridgeresultVC : FridgeResultsViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "fridgeResultVC") as! FridgeResultsViewController
-        //displayVC.name = "John Cena"
+        
         fridgeresultVC.searchRecipeByIngredient = self.searchRecipeByIngredient
         
         self.present(fridgeresultVC, animated: true, completion: nil)
     }
     
-    
+    //MARK: - Frigde navigation bar, buttons
     @IBAction func editButtontapped(_ sender: UIButton) {
         
         fridgeTableView.setEditing(!fridgeTableView.isEditing, animated: true)
@@ -121,7 +120,6 @@ class FridgeViewController: UIViewController {
         fridgeTableView.reloadData()
         updateDeleteButtonStatus()
     }
-    
     
     @IBAction func deleteButtonTapped(_ sender: UIButton) {
         
@@ -141,7 +139,7 @@ class FridgeViewController: UIViewController {
     }
 }
 
-// MARK: - Table view data source
+// MARK: - Fridge table view; cell data
 
 extension FridgeViewController: UITableViewDelegate, UITableViewDataSource {
     
@@ -150,27 +148,21 @@ extension FridgeViewController: UITableViewDelegate, UITableViewDataSource {
         return ingredientsInFridge.count
     }
     
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
     }
     
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let ingredientInFridge = ingredientsInFridge[indexPath.row]
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "fridgeCell") as! FridgeCell
+        
         cell.fridgeLabel.text = ingredientInFridge
         return cell
     }
     
-    // MARK: - Updating delete button when selecting/deselecting row
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         updateDeleteButtonStatus()
     }
-    
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         updateDeleteButtonStatus()
     }
