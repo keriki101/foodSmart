@@ -12,7 +12,7 @@ import Foundation
 class StoreEverything {
     static let instance = StoreEverything()
     //MARK: - Add Id to class
-    func storeUrlAndId(_ searchBarText: String, completion: @escaping (Error?) -> Void) {
+    func storeData_Id(_ searchBarText: String, completion: @escaping (Error?) -> Void) {
         let request = APIRequest.instance
         request.query = searchBarText
         

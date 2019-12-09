@@ -14,7 +14,6 @@ enum recipePressed {
 
 class RecipeViewController: UITableViewController {
     @IBOutlet var recipeTable: UITableView!
-    var urlString: String = ""
     var searching = false
     
     override func viewDidLoad() {
@@ -128,7 +127,7 @@ extension RecipeViewController: UISearchBarDelegate{
         searching = true
         guard let searchBarText = searchBar.text else {return}
         
-        StoreEverything.instance.storeUrlAndId(searchBarText){error in
+        StoreEverything.instance.storeData_Id(searchBarText){error in
             if error != nil{
                 print("Something went wrong, should never happen")
             } else {

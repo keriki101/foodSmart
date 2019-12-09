@@ -17,6 +17,4 @@ class IngredientCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
-
 }

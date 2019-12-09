@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+//MARK: - Animations for menu bar
 class SlideInTransition: NSObject, UIViewControllerAnimatedTransitioning {
     
     var isPresenting = false

@@ -20,7 +20,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //MARK: - Image array
         // Loop through the image array and set the name and scale
         for i in 0..<imagesArray.count {
             let imageView = UIImageView()
@@ -33,7 +33,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
-    
+    //MARK: - Menu button
     @IBAction func menuButtonPressed(_ sender: UIBarButtonItem) {
         
         guard let menuViewController = storyboard?.instantiateViewController(withIdentifier: "MenuViewController") as? MenuViewController else { return }
@@ -45,7 +45,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
         present(menuViewController, animated: true)
     }
     
-    
+    //MARK: - Menu bar
     func transitionToNewViewController(_ menuType: MenuType) {
         
                 
@@ -78,7 +78,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
     }
 }
 
-
+//MARK: - Transistions
 extension HomeViewController: UIViewControllerTransitioningDelegate {
     
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
